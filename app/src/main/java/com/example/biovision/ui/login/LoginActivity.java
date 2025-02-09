@@ -23,8 +23,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.biovision.R;
-import com.example.biovision.ui.login.LoginViewModel;
-import com.example.biovision.ui.login.LoginViewModelFactory;
 import com.example.biovision.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {

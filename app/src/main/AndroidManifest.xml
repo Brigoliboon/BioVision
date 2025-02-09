@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.biovision">
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -23,16 +24,17 @@
         android:theme="@style/Theme.BioVision"
         tools:targetApi="31">
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name="com.example.com.proj.biovision.ui.login.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".HomeActivity"
+            android:name="com.example.com.proj.biovision.HomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
-            android:label="@string/title_activity_home"/>
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.BioVision"/>
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.com.proj.biovision.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

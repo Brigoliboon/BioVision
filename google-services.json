@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "993721206061",
+    "project_id": "biovision-170b8",
+    "storage_bucket": "biovision-170b8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993721206061:android:49a1c960c1192f98b8ffa4",
+        "android_client_info": {
+          "package_name": "com.example.biovision"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0zII_uDRwOFOsM4Tz2Ar5SCmKTBCYwYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
