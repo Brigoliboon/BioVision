@@ -24,17 +24,17 @@
         android:theme="@style/Theme.BioVision"
         tools:targetApi="31">
         <activity
-            android:name="com.example.com.proj.biovision.ui.login.LoginActivity"
+            android:name="com.example.biovision.ui.login.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login" />
         <activity
-            android:name="com.example.com.proj.biovision.HomeActivity"
+            android:name="com.example.biovision.HomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.BioVision"/>
         <activity
-            android:name="com.example.com.proj.biovision.MainActivity"
+            android:name="com.example.biovision.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

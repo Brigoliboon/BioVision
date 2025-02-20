@@ -29,8 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        handler.postDelayed(() -> {
 
+        /*
+        * Displays splashscreen for a specific range of time
+        * Ends in starting the Home Activity.
+        * */
+        handler.postDelayed(() -> {
             Intent i = new Intent(MainActivity.this, HomeActivity.class);
 
             startActivity(i);
