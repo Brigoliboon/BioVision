@@ -15,7 +15,7 @@ public class QueryBuilder {
     public HttpUrl queriedUrl(String baseUrl){
 
         // Parses the url into a HttpUrl builder
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://api.example.com/search").newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(baseUrl).newBuilder();
 
         // Adds the queries on the HttpUrl Recursively
         for (Map.Entry<String, String> entry : queries.entrySet()) {
