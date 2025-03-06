@@ -1,15 +1,17 @@
 package com.example.biovision.API.Request;
 
-import com.example.biovision.API.Connection.ConnectionState;
 import com.example.biovision.API.Request.service.GET;
 import com.example.biovision.API.Request.service.POST;
+import com.example.biovision.API.Request.util.ResponseBodyParser;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.HashMap;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 public class Request implements GET, POST{
     private String api_key;
@@ -18,39 +20,47 @@ public class Request implements GET, POST{
     private RequestBuilder requestBuilder;
 
     private final OkHttpClient CLIENT = new OkHttpClient();
+    private final ResponseBodyParser PARSE = new ResponseBodyParser();
+
     public Request(String api_key, String url){
         this.api_key = api_key;
         this.url = url;
         this.requestBuilder = new RequestBuilder(api_key, url, RequestType.GET);
     }
 
-    public ResponseBody GET(HashMap<String, String> params) throws IOException {
+    public JSONObject GET(HashMap<String, String> params) throws IOException {
         okhttp3.Request request = requestBuilder.BuildGET(params);
 
         try(Response response = CLIENT.newCall(request).execute()) {
             if (response.isSuccessful()){
-                return response.body();
+                return PARSE.parsetoJSON(response.body());
             }
+
+
         } catch (IOException e){
             e.printStackTrace();
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
         }
         return null;
     }
 
 
-    public ResponseBody GET() {
+    public JSONObject GET() {
         okhttp3.Request request = requestBuilder.BuildGET();
 
         try {
             Response response = CLIENT.newCall(request).execute();
-            if (response.isSuccessful()){
-                return response.body();
-            }else{
-                return response.body();
+            if (response.isSuccessful()) {
+                return PARSE.parsetoJSON(response.body());
             }
+
+
         }catch (IOException e){
             e.printStackTrace();
             System.err.println(e);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
         }
         return  null;
     }
