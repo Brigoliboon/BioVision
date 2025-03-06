@@ -37,13 +37,23 @@ public class Request implements GET, POST{
         return null;
     }
 
-    public void POST(){
 
-    }
+    public ResponseBody GET() {
+        okhttp3.Request request = requestBuilder.BuildGET();
 
-
-    @Override
-    public okhttp3.Request GET() {
+        try(Response response = CLIENT.newCall(request).execute()) {
+            if (response.isSuccessful()){
+                return response.body();
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
         return null;
     }
+
+    public void POST(){
+        //TODO: Implement POST method
+
+    }
 }
+
