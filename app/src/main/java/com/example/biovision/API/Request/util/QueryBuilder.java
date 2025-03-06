@@ -13,7 +13,6 @@ public class QueryBuilder {
     }
 
     public HttpUrl queriedUrl(String baseUrl){
-
         // Parses the url into a HttpUrl builder
         HttpUrl.Builder urlBuilder = HttpUrl.parse(baseUrl).newBuilder();
 
