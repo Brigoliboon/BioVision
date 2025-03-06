@@ -48,7 +48,6 @@ public class RequestBuilder {
         //Builds the Request class
         Request request = new Request.Builder()
                 .url(completeUrl)
-                .get()
                 .build();
 
         return request;
