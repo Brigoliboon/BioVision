@@ -43,7 +43,10 @@ public class RequestBuilder {
                 .url(url)
                 .header("x-api-key", api_key)
                 .build();
+
+        return request;
     }
+
     public Request BuildGET(HashMap<String, String> queries){
         // Instantiates QueryBuilder class
         QueryBuilder querybuilder = new QueryBuilder(queries);
