@@ -14,7 +14,7 @@ public class ResponseUnitTest {
     public void testPlantSearch() throws IOException {
         PlantRequest plantAPI = new PlantRequest("qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL");
         ResponseBody response = plantAPI.plantSearch("Straw berry");
-
-        System.out.println(response.string());
+        String responseStr = response.string();
+        System.out.println(responseStr);
     }
 }

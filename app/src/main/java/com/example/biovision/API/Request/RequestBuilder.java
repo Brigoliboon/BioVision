@@ -57,6 +57,7 @@ public class RequestBuilder {
         //Builds the Request class
         Request request = new Request.Builder()
                 .url(completeUrl)
+                .header("x-api-key", "qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL")
                 .build();
 
         return request;

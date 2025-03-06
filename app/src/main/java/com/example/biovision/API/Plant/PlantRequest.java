@@ -22,6 +22,6 @@ public class PlantRequest {
         params.put("q", q);
 
         ResponseBody response = request.GET((HashMap<String, String>) params);
-        return  response;
+        return response;
     }
 }
