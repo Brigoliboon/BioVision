@@ -56,11 +56,10 @@ public class Request implements GET, POST{
 
         try(Response response = CLIENT.newCall(request).execute()) {
                 return response.code() == 200;
-
         } catch (IOException e){
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 
     public void POST(){
