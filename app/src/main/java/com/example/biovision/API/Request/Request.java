@@ -51,6 +51,18 @@ public class Request implements GET, POST{
         return null;
     }
 
+    public boolean isConnected() {
+        okhttp3.Request request = requestBuilder.BuildGET(api_key);
+
+        try(Response response = CLIENT.newCall(request).execute()) {
+                return response.code() == 200;
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public void POST(){
         //TODO: Implement POST method
 
