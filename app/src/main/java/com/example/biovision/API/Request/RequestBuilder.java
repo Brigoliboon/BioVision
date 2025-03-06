@@ -38,6 +38,12 @@ public class RequestBuilder {
         return request;
     }
 
+    public Request BuildGET(String api_key){
+        Request request = new Request.Builder()
+                .url(url)
+                .header("x-api-key", api_key)
+                .build();
+    }
     public Request BuildGET(HashMap<String, String> queries){
         // Instantiates QueryBuilder class
         QueryBuilder querybuilder = new QueryBuilder(queries);
