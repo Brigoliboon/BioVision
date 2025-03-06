@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.os.Handler;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.biovision.API.Connection.Connection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,12 +37,17 @@ public class MainActivity extends AppCompatActivity {
         * Displays splashscreen for a specific range of time
         * Ends in starting the Home Activity.
         * */
-        handler.postDelayed(() -> {
-            Intent i = new Intent(MainActivity.this, HomeActivity.class);
+        if (new Connection().isAuthorized()) {
+//            Toast.makeText(MainActivity.this,"Connection Established", Toast.LENGTH_SHORT).show();
+            handler.postDelayed(() -> {
+                Intent i = new Intent(MainActivity.this, TestActivity.class);
 
-            startActivity(i);
-            finish();
-        }, 3000);
+                startActivity(i);
+                finish();
+            }, 3000);
+        }else{
+//            Toast.makeText(MainActivity.this,"Connection Denied", Toast.LENGTH_SHORT).show();
+        }
 
 //        getSupportActionBar().hide();
     }

@@ -108,6 +108,7 @@ public class HomeActivity extends AppCompatActivity {
                         .build(); // Builds the camera to utilize
 
                 cameraProvider.unbindAll(); // Unbinds the camera to ensure that no camera is provided before the the cycle starts or resumes.
+
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                     Camera camera = cameraProvider.bindToLifecycle(this, cameraSelector, imageCapture, preview);
                     Toast.makeText(HomeActivity.this,camera.getCameraInfo().getCameraState().getValue().toString(), Toast.LENGTH_SHORT).show();

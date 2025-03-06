@@ -1,5 +1,6 @@
 package com.example.biovision.API.Request;
 
+import com.example.biovision.API.Connection.ConnectionState;
 import com.example.biovision.API.Request.service.GET;
 import com.example.biovision.API.Request.service.POST;
 
@@ -20,8 +21,7 @@ public class Request implements GET, POST{
     public Request(String api_key, String url){
         this.api_key = api_key;
         this.url = url;
-
-        RequestBuilder requestBuilder = new RequestBuilder(api_key, url, RequestType.GET);
+        this.requestBuilder = new RequestBuilder(api_key, url, RequestType.GET);
     }
 
     public ResponseBody GET(HashMap<String, String> params) throws IOException {
@@ -41,14 +41,18 @@ public class Request implements GET, POST{
     public ResponseBody GET() {
         okhttp3.Request request = requestBuilder.BuildGET();
 
-        try(Response response = CLIENT.newCall(request).execute()) {
+        try {
+            Response response = CLIENT.newCall(request).execute();
             if (response.isSuccessful()){
                 return response.body();
+            }else{
+                return response.body();
             }
-        } catch (IOException e){
+        }catch (IOException e){
             e.printStackTrace();
+            System.err.println(e);
         }
-        return null;
+        return  null;
     }
 
     public boolean isConnected() {

@@ -7,8 +7,7 @@ import okhttp3.ResponseBody;
 public class Connection {
 
     public boolean isAuthorized(){
-        Request request = new Request("rAq4eAZ3wRE4sJFyVC5Y8wgH6Vcb0USuRZStsJTbp0nES2V2vN6IvIGxMiaLGl4", "https://bio-vision-api.vercel.app/auth");
-
+        Request request = new Request("qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL", "https://bio-vision-api.vercel.app/auth");
         return request.isConnected();
     }
 }

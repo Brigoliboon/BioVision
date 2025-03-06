@@ -9,10 +9,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.biovision" />
+                  <option name="mobileSdkAppId" value="1:993721206061:android:49a1c960c1192f98b8ffa4" />
+                  <option name="projectId" value="biovision-170b8" />
+                  <option name="projectNumber" value="993721206061" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

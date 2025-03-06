@@ -18,12 +18,14 @@ public class Camera {
     private PreviewView cameraDisplay;
 
     private Context context;
-    public Camera(int cameraFacing, PreviewView cameraDisplay, Context context){
+
+    public Camera(int cameraFacing, PreviewView cameraDisplay, Context context) {
         this.cameraFacing = cameraFacing;
         this.cameraDisplay = cameraDisplay;
         this.context = context;
     }
-
+}
+/*
     public void startCamera(int cameraFacing){
         ListenableFuture listenableFuture = ProcessCameraProvider.getInstance(context);
         listenableFuture.addListener(() -> {
@@ -46,4 +48,8 @@ public class Camera {
                     androidx.camera.core.Camera camera = cameraProvider.bindToLifecycle(this, cameraSelector, imageCapture, preview);
 
                 }
+            }
+        }
 }
+
+ */
