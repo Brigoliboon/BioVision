@@ -1,6 +1,11 @@
 package com.example.biovision.API.Request;
 
+import com.example.biovision.API.Request.util.QueryBuilder;
+
+import java.util.HashMap;
+
 import okhttp3.Headers;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -28,15 +33,21 @@ public class RequestBuilder {
     public Request BuildGET(){
         Request request = new Request.Builder()
                 .url(url)
-                .get()
                 .build();
 
         return request;
     }
 
-    public Request BuildGET(){
+    public Request BuildGET(HashMap<String, String> queries){
+        // Instantiates QueryBuilder class
+        QueryBuilder querybuilder = new QueryBuilder(queries);
+
+        // Generates a url with the queries attached
+        HttpUrl completeUrl = querybuilder.queriedUrl(url);
+
+        //Builds the Request class
         Request request = new Request.Builder()
-                .url(url)
+                .url(completeUrl)
                 .get()
                 .build();
 
