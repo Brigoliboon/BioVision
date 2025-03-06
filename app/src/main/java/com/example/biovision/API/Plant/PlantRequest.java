@@ -18,9 +18,8 @@ public class PlantRequest {
     public ResponseBody plantSearch(String q) throws IOException {
         Request request = new Request(api_key, "https://bio-vision-api.vercel.app/api/v1/plant/search");
 
-        Map<String, String> params = Map.of(
-                "q", q
-        );
+        HashMap<String, String> params = new HashMap<>();
+        params.put("q", q);
 
         ResponseBody response = request.GET((HashMap<String, String>) params);
         return  response;
