@@ -1,5 +1,8 @@
 package com.example.biovision;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import android.content.Intent;
@@ -33,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -62,11 +64,35 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                     }, 3000);
                 }else{
-                    Toast.makeText(MainActivity.this,"Connection Denied", Toast.LENGTH_SHORT).show();
+                    displayUnauthorizedAccess();
                 }
             });
         });
 
 //        getSupportActionBar().hide();
+    }
+    public void displayUnauthorizedAccess(){
+        // Create the object of AlertDialog Builder class
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+        // Set the message show for the Alert time
+        builder.setMessage("Locked by system administrator");
+
+        // Set Alert Title
+        builder.setTitle("Unauthorized Access");
+
+        // Set Cancelable false for when the user clicks
+        // on the outside the Dialog Box then it will remain show
+        builder.setCancelable(false);
+
+        // Set the positive button with yes name Lambda
+        // OnClickListener method is use of DialogInterface interface.
+        builder.setPositiveButton("Exit", (DialogInterface.OnClickListener) (dialog, which) -> {
+
+            // When the user click yes button then app will close
+            finish();
+        });
+
+        builder.show();
     }
 }
