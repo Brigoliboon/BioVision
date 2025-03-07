@@ -9,6 +9,7 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class RequestBuilder {
     private String api_key;
@@ -24,7 +25,7 @@ public class RequestBuilder {
     public Request BuildPOST(RequestBody requestBody){
         Request request = new Request.Builder()
                 .url(url)
-                .header("api-key", api_key)
+                .header("x-api-key", api_key)
                 .post(requestBody)
                 .build();
         return request;
@@ -33,12 +34,13 @@ public class RequestBuilder {
     public Request BuildGET(){
         Request request = new Request.Builder()
                 .url(url)
+                .header("x-api-key", api_key)
                 .build();
 
         return request;
     }
 
-    public Request BuildGET(String api_key){
+    public Request BuildGET(HttpUrl url){
         Request request = new Request.Builder()
                 .url(url)
                 .header("x-api-key", api_key)
@@ -55,10 +57,8 @@ public class RequestBuilder {
         HttpUrl completeUrl = querybuilder.queriedUrl(url);
 
         //Builds the Request class
-        Request request = new Request.Builder()
-                .url(completeUrl)
-                .header("x-api-key", "qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL")
-                .build();
+        Request request = this.BuildGET(completeUrl);
+
 
         return request;
     }

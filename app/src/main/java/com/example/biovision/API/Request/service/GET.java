@@ -1,8 +1,8 @@
 package com.example.biovision.API.Request.service;
 
-import org.json.JSONObject;
+import okhttp3.Response;
 
 public interface GET {
 
-    public JSONObject GET();
+    public Response GET();
 }

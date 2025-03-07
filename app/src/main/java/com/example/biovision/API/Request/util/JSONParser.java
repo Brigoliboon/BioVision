@@ -7,11 +7,13 @@ import java.io.IOException;
 
 import okhttp3.ResponseBody;
 
-public class ResponseBodyParser {
+public class JSONParser {
 
     public JSONObject parsetoJSON(ResponseBody response) throws IOException, JSONException {
         JSONObject json = new JSONObject(response.string());
 
         return  json;
     }
+
+
 }
