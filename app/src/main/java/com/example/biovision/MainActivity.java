@@ -15,6 +15,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.biovision.API.Connection.Connection;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -30,24 +33,39 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        /*
-        * Displays splashscreen for a specific range of time
-        * Ends in starting the Home Activity.
+        /* Problem: The Connection network returns an error when it is attempted to run on MainThread
+        * Solution: The Connection network will be running on different thread
         * */
-        if (new Connection().isAuthorized()) {
-//            Toast.makeText(MainActivity.this,"Connection Established", Toast.LENGTH_SHORT).show();
-            handler.postDelayed(() -> {
-                Intent i = new Intent(MainActivity.this, TestActivity.class);
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            // Runs on different thread
+            Connection connection = new Connection();
+            boolean isAuthorized = connection.isAuthorized();
 
-                startActivity(i);
-                finish();
-            }, 3000);
-        }else{
-//            Toast.makeText(MainActivity.this,"Connection Denied", Toast.LENGTH_SHORT).show();
-        }
+            // Updates UI
+            runOnUiThread(() -> {
+
+                /*
+                 * Displays splashscreen for a specific range of time
+                 * Ends in starting the Home Activity.
+                 * */
+                if (isAuthorized) {
+                    Toast.makeText(MainActivity.this,"Connection Established", Toast.LENGTH_SHORT).show();
+                    handler.postDelayed(() -> {
+                        Intent i = new Intent(MainActivity.this, HomeActivity.class);
+
+                        startActivity(i);
+                        finish();
+                    }, 3000);
+                }else{
+                    Toast.makeText(MainActivity.this,"Connection Denied", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
 
 //        getSupportActionBar().hide();
     }
