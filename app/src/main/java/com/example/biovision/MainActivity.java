@@ -71,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
 //        getSupportActionBar().hide();
     }
+
+    /*
+     * Displays alert banner when the user is not authorized to access the application
+     *
+     * */
     public void displayUnauthorizedAccess(){
         // Create the object of AlertDialog Builder class
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);

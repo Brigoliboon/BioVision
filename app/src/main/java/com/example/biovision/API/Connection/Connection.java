@@ -10,4 +10,15 @@ public class Connection {
         Request request = new Request("qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL", "https://bio-vision-api.vercel.app/auth");
         return request.isConnected();
     }
+
+    public boolean isWifiConnected(){
+        return false;
+    }
+
+    public boolean isDataConnected(){
+        return false;
+    }
+    public boolean hasNetworkConnection(){
+        return false;
+    }
 }

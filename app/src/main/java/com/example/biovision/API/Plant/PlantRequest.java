@@ -1,6 +1,7 @@
 package com.example.biovision.API.Plant;
 
 import com.example.biovision.API.Request.Request;
+import com.example.biovision.API.Request.util.QueryBuilder;
 
 import org.json.JSONObject;
 
@@ -25,6 +26,7 @@ public class PlantRequest {
 
         HashMap<String, String> params = new HashMap<>();
         params.put("q", q);
+
 
         Response response = request.GET((HashMap<String, String>) params);
         return response;

@@ -1,13 +1,16 @@
 package com.example.biovision.API.Request.util;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.Headers;
 import okhttp3.HttpUrl;
 
 public class QueryBuilder {
 
     private HashMap<String, String> queries;
+
     public QueryBuilder(HashMap<String, String> queries){
         this.queries = queries;
     }
