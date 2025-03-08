@@ -1,6 +1,7 @@
 package com.example.biovision.API.Request;
 
 import com.example.biovision.API.Connection.ConnectionState;
+import com.example.biovision.API.Connection.exception.RuntimeTimeoutException;
 import com.example.biovision.API.Connection.exception.UnauthorizedException;
 import com.example.biovision.API.Request.service.GET;
 import com.example.biovision.API.Request.service.POST;
@@ -34,36 +35,49 @@ public class Request implements GET, POST{
         this.requestBuilder = new RequestBuilder(api_key, url, RequestType.GET);
     }
 
-    private Response returnResponse(Response response) throws UnauthorizedException {
+    // Helper method
+    private Response processResponse(Response response) throws UnauthorizedException, RuntimeTimeoutException {
         if (response.isSuccessful()) {
             return response;
+
         } else if (response.code() == ConnectionState.Unauthorized.getCode()) {
-            throw new UnauthorizedException("User unauthorized access.");
+            throw new UnauthorizedException("User unauthorized access");
+
+        } else if (response.code() == ConnectionState.Timeout.getCode()) {
+            throw new RuntimeTimeoutException("Runtime timeout response from the server");
         }
+
+        // Returns null if the response was not successful and has not been caught by exceptions
         return null;
     }
-    public Response GET(HashMap<String, String> params) throws IOException {
+
+    /*
+    * THIS SECTION STARTS THE GET METHOD OVERLOADS
+    * */
+    public Response GET(HashMap<String, String> params)throws UnauthorizedException, RuntimeTimeoutException{
         okhttp3.Request request = requestBuilder.BuildGET(params);
 
         try {
             Response response = CLIENT.newCall(request).execute();
 
+            // processes and handles the return events from the response calls
+            processResponse(response);
         } catch (IOException e) {
             e.printStackTrace();
+
         }
+
         return null;
     }
 
-    public Response GET() throws TimeoutException {
+    public Response GET() throws UnauthorizedException, RuntimeTimeoutException {
             okhttp3.Request request = requestBuilder.BuildGET();
 
         try {
             Response response = CLIENT.newCall(request).execute();
-            if (response.isSuccessful()) {
-                return response;
-            } else if (response.code() == ConnectionState.Timeout.getCode()) {
-                throw new TimeoutException();
-            }
+
+            // processes and handles the return events from the response calls
+            processResponse(response);
         }
 
         catch (IOException e){
@@ -71,19 +85,19 @@ public class Request implements GET, POST{
             System.err.println(e);
         }
         return  null;
+
     }
 
-    public boolean isConnected() throws TimeoutException{
+    public boolean isConnected() throws RuntimeTimeoutException{
         okhttp3.Request request = requestBuilder.BuildGET();
 
         try(Response response = CLIENT.newCall(request).execute()) {
-                if (response.code() == ConnectionState.Success.getCode()){
-                    return true;
-                }else if(response.code() == ConnectionState.Unauthorized.getCode()) {
-                    return false;
-                }
+                processResponse(response);
         } catch (IOException e){
             e.printStackTrace();
+
+        } catch (UnauthorizedException e) {
+            return false;
         }
         return false;
     }
