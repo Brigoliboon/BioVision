@@ -14,12 +14,12 @@ public interface GET {
 
     /* TODO: TO BE IMPLEMENTED ON FUTURE VERSIONS
 
-    // Requests the provided url with api key
+    // Requests the provided url with provided api key
     public static Response GET(String url, String api_key) throws RuntimeTimeoutException, UnauthorizedException {
         return null;
     }
 
-    // Requests the provided url with api key and with queries
+    // Requests the provided url with provided api key and with queries
     public static Response GET(String url, String api_key, HashMap<String, String> params) throws RuntimeTimeoutException, UnauthorizedException {
         return null;
     }
