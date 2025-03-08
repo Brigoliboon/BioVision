@@ -17,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.biovision.API.Connection.Connection;
+import com.example.biovision.API.Connection.exception.RuntimeTimeoutException;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -46,7 +47,15 @@ public class MainActivity extends AppCompatActivity {
         executor.execute(() -> {
             // Runs on different thread
             Connection connection = new Connection();
-            boolean isAuthorized = connection.isAuthorized();
+
+            boolean isAuthorized;
+
+            try {
+                isAuthorized = connection.isAuthorized();
+
+            } catch (RuntimeTimeoutException e) {
+                throw new RuntimeException(e);
+            }
 
             // Updates UI
             runOnUiThread(() -> {

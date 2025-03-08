@@ -27,7 +27,6 @@ public class Request implements GET, POST{
     private final RequestBuilder requestBuilder;
 
     private final OkHttpClient CLIENT = new OkHttpClient();
-    private final JSONParser PARSE = new JSONParser();
 
     public Request(String api_key, String url){
         this.api_key = api_key;
@@ -52,7 +51,7 @@ public class Request implements GET, POST{
     }
 
     /*
-    * THIS SECTION STARTS THE GET METHOD OVERLOADS
+    * THIS SECTION BEGINS THE GET METHOD OVERLOADS
     * */
     public Response GET(HashMap<String, String> params)throws UnauthorizedException, RuntimeTimeoutException{
         okhttp3.Request request = requestBuilder.BuildGET(params);
@@ -88,20 +87,27 @@ public class Request implements GET, POST{
 
     }
 
-    public boolean isConnected() throws RuntimeTimeoutException{
+    public boolean isConnected() throws UnauthorizedException, RuntimeTimeoutException {
         okhttp3.Request request = requestBuilder.BuildGET();
 
-        try(Response response = CLIENT.newCall(request).execute()) {
-                processResponse(response);
-        } catch (IOException e){
-            e.printStackTrace();
+        try {
+            Response response = CLIENT.newCall(request).execute();
 
-        } catch (UnauthorizedException e) {
-            return false;
+            // Checks if the processResponse has an uncaught error and returned null
+            if (processResponse(response) != null) {
+                return true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        // Always returns to false when the connection is not successful - Not received a 200 status
         return false;
     }
 
+    /*
+     * THIS SECTION BEGINS THE POST METHOD OVERLOADS
+     * */
     public Response POST(JSONObject payload){
         //TODO: Implement POST method
 
