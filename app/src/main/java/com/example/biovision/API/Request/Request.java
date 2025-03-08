@@ -1,5 +1,7 @@
 package com.example.biovision.API.Request;
 
+import com.example.biovision.API.Connection.ConnectionState;
+import com.example.biovision.API.Connection.exception.UnauthorizedException;
 import com.example.biovision.API.Request.service.GET;
 import com.example.biovision.API.Request.service.POST;
 import com.example.biovision.API.Request.util.JSONParser;
@@ -7,12 +9,15 @@ import com.example.biovision.API.Request.util.JSONParser;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.sql.Time;
 import java.util.HashMap;
+import java.util.concurrent.TimeoutException;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class Request implements GET, POST{
     private final String api_key;
@@ -29,14 +34,19 @@ public class Request implements GET, POST{
         this.requestBuilder = new RequestBuilder(api_key, url, RequestType.GET);
     }
 
+    private Response returnResponse(Response response) throws UnauthorizedException {
+        if (response.isSuccessful()) {
+            return response;
+        } else if (response.code() == ConnectionState.Unauthorized.getCode()) {
+            throw new UnauthorizedException("User unauthorized access.");
+        }
+        return null;
+    }
     public Response GET(HashMap<String, String> params) throws IOException {
         okhttp3.Request request = requestBuilder.BuildGET(params);
 
         try {
             Response response = CLIENT.newCall(request).execute();
-            if (response.isSuccessful()) {
-                return response;
-            }
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -44,13 +54,15 @@ public class Request implements GET, POST{
         return null;
     }
 
-    public Response GET() {
+    public Response GET() throws TimeoutException {
             okhttp3.Request request = requestBuilder.BuildGET();
 
         try {
             Response response = CLIENT.newCall(request).execute();
             if (response.isSuccessful()) {
                 return response;
+            } else if (response.code() == ConnectionState.Timeout.getCode()) {
+                throw new TimeoutException();
             }
         }
 
@@ -61,11 +73,15 @@ public class Request implements GET, POST{
         return  null;
     }
 
-    public boolean isConnected() {
+    public boolean isConnected() throws TimeoutException{
         okhttp3.Request request = requestBuilder.BuildGET();
 
         try(Response response = CLIENT.newCall(request).execute()) {
-                return response.code() == 200;
+                if (response.code() == ConnectionState.Success.getCode()){
+                    return true;
+                }else if(response.code() == ConnectionState.Unauthorized.getCode()) {
+                    return false;
+                }
         } catch (IOException e){
             e.printStackTrace();
         }

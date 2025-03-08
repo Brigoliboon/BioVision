@@ -1,8 +1,23 @@
 package com.example.biovision.API.Connection;
 
 public enum ConnectionState {
-    STATUS_200(200), STATUS_401(401);
+    Success(200, "OK"),
+    Unauthorized(401, "Unauthorized Access"),
+    Timeout(408, "Request Timeout");
 
-    ConnectionState(int i) {
+    private int code;
+    private String message;
+    ConnectionState(int code, String message) {
+        this.code = code;
+        this.message = message;
     }
+
+    public int getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
 }
