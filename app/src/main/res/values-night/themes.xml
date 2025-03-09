@@ -3,11 +3,21 @@
     <style name="Base.Theme.BioVision" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
 <!--        <item name="android:windowTranslucentStatus">true</item>-->
-<!--        <item name="android:statusBarColor">@android:color/transparent</item>        item-->
+<!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
+
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:textColorSecondary">@color/surface_color</item>
     </style>
 
     <style name="ThemeOverlay.BioVision.FullscreenContainer" parent="">
         <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
         <item name="fullscreenTextColor">@color/light_blue_A400</item>
+    </style>
+
+    <style name="dialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
     </style>
 </resources>

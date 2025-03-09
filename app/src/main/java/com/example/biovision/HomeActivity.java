@@ -1,8 +1,14 @@
 package com.example.biovision;
 
+import android.app.Dialog;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.Manifest;
@@ -34,6 +40,7 @@ import java.io.File;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 public class HomeActivity extends AppCompatActivity {
     ImageButton capture; // The id element for the capture button
     SearchView search_bar; // The id element for search compat query
@@ -67,6 +74,8 @@ public class HomeActivity extends AppCompatActivity {
             return insets;
         });
 
+        showDialog();
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -91,6 +100,8 @@ public class HomeActivity extends AppCompatActivity {
         /*
         * Starts the camera and displays on a surfaceView
         * */
+
+        showDialog();
         ListenableFuture listenableFuture = ProcessCameraProvider.getInstance(this);
         listenableFuture.addListener(() -> {
             try {
@@ -138,6 +149,7 @@ public class HomeActivity extends AppCompatActivity {
     //TODO Organize the folder-file saving structure
     public void takePicture(ImageCapture imageCapture){
         debugger("Taking a Picture");
+        showDialog();
 //        saves the picture after taking it
         final File file = new File(getExternalFilesDir(null), System.currentTimeMillis() + ".jpg");
         ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
@@ -170,5 +182,19 @@ public class HomeActivity extends AppCompatActivity {
                 startCamera(cameraFacing);
             }
         });
+    }
+
+    public void showDialog(){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog. setContentView(R.layout.bottomsheetlayout);
+        // Declare and Implement inside elements
+
+        // Show
+        dialog.show();
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.dialogAnimation;
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
 }
