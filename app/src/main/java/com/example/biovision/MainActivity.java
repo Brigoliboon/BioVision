@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         executor.execute(() -> {
             // Runs on different thread
             Connection connection = new Connection();
-            // Updates UI
             AuthenticationStatus status = null;
 
             try {
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     status = AuthenticationStatus.NETWORKISSUE;
                 }
             }
+            // Updates UI
             AuthenticationStatus finalStatus = status;
             runOnUiThread(() -> {
 
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 }else if(finalStatus == AuthenticationStatus.TIMEOUT){
                     displayTimeoutRequest();
                 }else{
-                    displayAlertBanner("Network Issue", "Error connecting to the server");
+                    displayAlertBanner("Network Issue", "Please make sure you are connected to the internet and try again");
                 }
             });
         });
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
         // Set the message show for the Alert time
-        builder.setMessage("Server took too long to respond");
+        builder.setMessage("Please make sure you are connected to the internet and try again");
 
         // Set Alert Title
         builder.setTitle("Request Timeout");

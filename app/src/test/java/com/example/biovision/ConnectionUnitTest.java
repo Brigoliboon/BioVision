@@ -70,25 +70,25 @@ public class ConnectionUnitTest {
     }
 
     // Need to connect to an internet with no/slow internet connection
-    @Test
-    public void runtimeTimeoutError() {
-        Request request = new Request("qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL", "https://bio-vision-api.vercel.app/");
-        displayTitle("Runtime Timeout Exception");
-
-        try {
-            request.isConnected();
-        } catch (NetworkErrorException e) {
-            Class cls = e.getType().getClass();
-            String message = e.getMessage();
-
-            printError(cls, message);
-            // Asserts if the NetworkError is due to timeout
-            assertEquals(SocketTimeoutException.class, cls);
-
-        } catch (UnauthorizedException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    @Test
+//    public void runtimeTimeoutError() {
+//        Request request = new Request("qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL", "https://bio-vision-api.vercel.app/");
+//        displayTitle("Runtime Timeout Exception");
+//
+//        try {
+//            request.isConnected();
+//        } catch (NetworkErrorException e) {
+//            Class cls = e.getType().getClass();
+//            String message = e.getMessage();
+//
+//            printError(cls, message);
+//            // Asserts if the NetworkError is due to timeout
+//            assertEquals(SocketTimeoutException.class, cls);
+//
+//        } catch (UnauthorizedException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     @Test
     public void LandingPage() throws UnauthorizedException {

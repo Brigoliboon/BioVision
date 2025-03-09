@@ -41,7 +41,7 @@ public class Connection {
         // Catches the Unauthorized exception and returns to false
     }
 
-
+// Checks for the enabled networks
     public static NetworkType getNetworkStatus(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
