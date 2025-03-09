@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -50,21 +51,7 @@ public class MainActivity extends AppCompatActivity {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
             // Runs on different thread
-            Connection connection = new Connection();
-            AuthenticationStatus status = null;
-
-            try {
-                status = connection.isAuthorized()? AuthenticationStatus.AUTHENTICATED: AuthenticationStatus.BLOCKED;
-
-            } catch (NetworkErrorException e) {
-                if (e.getErrorType().equals(SocketTimeoutException.class)){
-                    status = AuthenticationStatus.TIMEOUT;
-                }else{
-                    status = AuthenticationStatus.NETWORKISSUE;
-                }
-            }
-            // Updates UI
-            AuthenticationStatus finalStatus = status;
+            AuthenticationStatus finalStatus = getAuthenticationStatus();
             runOnUiThread(() -> {
 
                 /*
@@ -89,6 +76,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
 //        getSupportActionBar().hide();
+    }
+
+    @NonNull
+    private static AuthenticationStatus getAuthenticationStatus() {
+        Connection connection = new Connection();
+        AuthenticationStatus status = null;
+
+        try {
+            status = connection.isAuthorized()? AuthenticationStatus.AUTHENTICATED: AuthenticationStatus.BLOCKED;
+
+        } catch (NetworkErrorException e) {
+            if (e.getErrorType().equals(SocketTimeoutException.class)){
+                status = AuthenticationStatus.TIMEOUT;
+            }else{
+                status = AuthenticationStatus.NETWORKISSUE;
+            }
+        }
+        // Updates UI
+        AuthenticationStatus finalStatus = status;
+        return finalStatus;
     }
 
     /*
@@ -119,53 +126,10 @@ public class MainActivity extends AppCompatActivity {
 
         builder.show();
     }
-    public void displayTimeoutRequest(){
-        // Create the object of AlertDialog Builder class
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-
-        // Set the message show for the Alert time
-        builder.setMessage("Please make sure you are connected to the internet and try again");
-
-        // Set Alert Title
-        builder.setTitle("Request Timeout");
-
-        // Set Cancelable false for when the user clicks
-        // on the outside the Dialog Box then it will remain show
-        builder.setCancelable(false);
-
-        // Set the positive button with yes name Lambda
-        // OnClickListener method is use of DialogInterface interface.
-        builder.setPositiveButton("Exit", (DialogInterface.OnClickListener) (dialog, which) -> {
-
-            // When the user click yes button then app will close
-            finish();
-        });
-
-        builder.show();
+    public void displayTimeoutRequest() {
+        displayAlertBanner("Request Timeout", "Please make sure you are connected to the internet and try again");
     }
-
     public void displayUnauthorizedAccess(){
-        // Create the object of AlertDialog Builder class
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-
-        // Set the message show for the Alert time
-        builder.setMessage("Locked by system administrator");
-
-        // Set Alert Title
-        builder.setTitle("Unauthorized Access");
-
-        // Set Cancelable false for when the user clicks
-        // on the outside the Dialog Box then it will remain show
-        builder.setCancelable(false);
-
-        // Set the positive button with yes name Lambda
-        // OnClickListener method is use of DialogInterface interface.
-        builder.setPositiveButton("Exit", (DialogInterface.OnClickListener) (dialog, which) -> {
-
-            // When the user click yes button then app will close
-            finish();
-        });
-
-        builder.show();
+        displayAlertBanner("Unauthorized Access", "Locked by system administrator. Kindly contact the system administrator for further details");
     }
 }
