@@ -16,13 +16,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.biovision.API.Connection.AuthenticationStatus;
 import com.example.biovision.API.Connection.Connection;
+import com.example.biovision.API.Connection.exception.NetworkErrorException;
 import com.example.biovision.API.Connection.exception.RuntimeTimeoutException;
 
+import java.net.SocketTimeoutException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,33 +51,39 @@ public class MainActivity extends AppCompatActivity {
         executor.execute(() -> {
             // Runs on different thread
             Connection connection = new Connection();
-
-            boolean isAuthorized;
+            // Updates UI
+            AuthenticationStatus status = null;
 
             try {
-                isAuthorized = connection.isAuthorized();
+                status = connection.isAuthorized()? AuthenticationStatus.AUTHENTICATED: AuthenticationStatus.BLOCKED;
 
-            } catch (RuntimeTimeoutException e) {
-                throw new RuntimeException(e);
+            } catch (NetworkErrorException e) {
+                if (e.getErrorType().equals(SocketTimeoutException.class)){
+                    status = AuthenticationStatus.TIMEOUT;
+                }else{
+                    status = AuthenticationStatus.NETWORKISSUE;
+                }
             }
-
-            // Updates UI
+            AuthenticationStatus finalStatus = status;
             runOnUiThread(() -> {
 
                 /*
                  * Displays splashscreen for a specific range of time
                  * Ends in starting the Home Activity.
                  * */
-                if (isAuthorized) {
+                if (finalStatus == AuthenticationStatus.AUTHENTICATED) {
                     Toast.makeText(MainActivity.this,"Connection Established", Toast.LENGTH_SHORT).show();
                     handler.postDelayed(() -> {
                         Intent i = new Intent(MainActivity.this, HomeActivity.class);
-
                         startActivity(i);
                         finish();
                     }, 3000);
-                }else{
+                }else if(finalStatus == AuthenticationStatus.BLOCKED) {
                     displayUnauthorizedAccess();
+                }else if(finalStatus == AuthenticationStatus.TIMEOUT){
+                    displayTimeoutRequest();
+                }else{
+                    displayAlertBanner("Network Issue", "Error connecting to the server");
                 }
             });
         });
@@ -85,6 +95,55 @@ public class MainActivity extends AppCompatActivity {
      * Displays alert banner when the user is not authorized to access the application
      *
      * */
+    public void displayAlertBanner(String title, String message){
+        // Create the object of AlertDialog Builder class
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+        // Set the message show for the Alert time
+        builder.setMessage(message);
+
+        // Set Alert Title
+        builder.setTitle(title);
+
+        // Set Cancelable false for when the user clicks
+        // on the outside the Dialog Box then it will remain show
+        builder.setCancelable(false);
+
+        // Set the positive button with yes name Lambda
+        // OnClickListener method is use of DialogInterface interface.
+        builder.setPositiveButton("Exit", (DialogInterface.OnClickListener) (dialog, which) -> {
+
+            // When the user click yes button then app will close
+            finish();
+        });
+
+        builder.show();
+    }
+    public void displayTimeoutRequest(){
+        // Create the object of AlertDialog Builder class
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+        // Set the message show for the Alert time
+        builder.setMessage("Server took too long to respond");
+
+        // Set Alert Title
+        builder.setTitle("Request Timeout");
+
+        // Set Cancelable false for when the user clicks
+        // on the outside the Dialog Box then it will remain show
+        builder.setCancelable(false);
+
+        // Set the positive button with yes name Lambda
+        // OnClickListener method is use of DialogInterface interface.
+        builder.setPositiveButton("Exit", (DialogInterface.OnClickListener) (dialog, which) -> {
+
+            // When the user click yes button then app will close
+            finish();
+        });
+
+        builder.show();
+    }
+
     public void displayUnauthorizedAccess(){
         // Create the object of AlertDialog Builder class
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);

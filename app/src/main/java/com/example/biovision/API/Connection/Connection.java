@@ -5,26 +5,42 @@ import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.os.Build;
 
+import com.example.biovision.API.Connection.exception.NetworkErrorException;
 import com.example.biovision.API.Connection.exception.RuntimeTimeoutException;
 import com.example.biovision.API.Connection.exception.UnauthorizedException;
 import com.example.biovision.API.Request.Request;
 
-import okhttp3.ResponseBody;
+import okhttp3.Response;
+
+import java.io.IOException;
+import java.net.*;
 
 public class Connection {
+    private String apiKey;
 
-    public boolean isAuthorized() throws RuntimeTimeoutException {
-        Request request = new Request("qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL", "https://bio-vision-api.vercel.app/auth");
+    public Connection(String api_key){
+        this.apiKey = api_key;
+    }
+
+    public Connection(){
+        this.apiKey = "qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL";
+    }
+
+    public boolean isAuthorized() throws NetworkErrorException {
+        Request request = new Request(apiKey, "https://bio-vision-api.vercel.app/auth");
 
         try {
+            Response response = request.GET();
+            return response.isSuccessful();
 
-            return request.isConnected();
-        }
-        // Catches the Unauthorized exception and returns to false
-        catch (UnauthorizedException e) {
+        } catch (UnauthorizedException e) {
             return false;
         }
+
+
+        // Catches the Unauthorized exception and returns to false
     }
+
 
     public static NetworkType getNetworkStatus(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -43,7 +59,9 @@ public class Connection {
                         }
                     }
                 }
+                throw new NetworkErrorException(new IOException(), "No network");
             }
         }
+        return null;
     }
 }

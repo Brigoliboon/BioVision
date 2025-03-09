@@ -1,11 +1,14 @@
 package com.example.biovision.API.Request;
 
+import com.example.biovision.API.Connection.Connection;
 import com.example.biovision.API.Connection.ConnectionState;
+import com.example.biovision.API.Connection.exception.NetworkErrorException;
 import com.example.biovision.API.Connection.exception.RuntimeTimeoutException;
 import com.example.biovision.API.Connection.exception.UnauthorizedException;
 import com.example.biovision.API.Request.service.GET;
 import com.example.biovision.API.Request.service.POST;
 import com.example.biovision.API.Request.util.JSONParser;
+import com.example.biovision.MainActivity;
 
 import org.json.JSONObject;
 
@@ -34,75 +37,65 @@ public class Request implements GET, POST{
         this.requestBuilder = new RequestBuilder(api_key, url, RequestType.GET);
     }
 
-    // Helper method
-    private Response processResponse(Response response) throws UnauthorizedException, RuntimeTimeoutException {
+    // Helper methods
+    private Response processResponse(Response response) throws UnauthorizedException, NetworkErrorException{
         if (response.isSuccessful()) {
             return response;
 
         } else if (response.code() == ConnectionState.Unauthorized.getCode()) {
             throw new UnauthorizedException("User unauthorized access");
-
-        } else if (response.code() == ConnectionState.Timeout.getCode()) {
-            throw new RuntimeTimeoutException("Runtime timeout response from the server");
         }
 
         // Returns null if the response was not successful and has not been caught by exceptions
         return null;
     }
 
-    /*
-    * THIS SECTION BEGINS THE GET METHOD OVERLOADS
-    * */
-    public Response GET(HashMap<String, String> params)throws UnauthorizedException, RuntimeTimeoutException{
-        okhttp3.Request request = requestBuilder.BuildGET(params);
+    private Response establishConnection(okhttp3.Request request) throws NetworkErrorException {
 
         try {
             Response response = CLIENT.newCall(request).execute();
 
-            // processes and handles the return events from the response calls
-            processResponse(response);
+            return response;
         } catch (IOException e) {
-            e.printStackTrace();
-
+            throw new NetworkErrorException(e, e.getMessage());
         }
-
-        return null;
-    }
-
-    public Response GET() throws UnauthorizedException, RuntimeTimeoutException {
-            okhttp3.Request request = requestBuilder.BuildGET();
-
-        try {
-            Response response = CLIENT.newCall(request).execute();
-
-            // processes and handles the return events from the response calls
-            processResponse(response);
-        }
-
-        catch (IOException e){
-            e.printStackTrace();
-            System.err.println(e);
-        }
-        return  null;
 
     }
 
-    public boolean isConnected() throws UnauthorizedException, RuntimeTimeoutException {
+    public boolean isConnected() throws UnauthorizedException, NetworkErrorException {
         okhttp3.Request request = requestBuilder.BuildGET();
 
-        try {
-            Response response = CLIENT.newCall(request).execute();
+        Response response = establishConnection(request);
 
-            // Checks if the processResponse has an uncaught error and returned null
-            if (processResponse(response) != null) {
-                return true;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        // Checks if the processResponse has an uncaught error and returned null
+        if (processResponse(response) != null) {
+            return true;
         }
 
         // Always returns to false when the connection is not successful - Not received a 200 status
         return false;
+    }
+
+    /*
+    * THIS SECTION BEGINS THE GET METHOD OVERLOADS
+    * */
+    public Response GET() throws UnauthorizedException, NetworkErrorException {
+        okhttp3.Request request = requestBuilder.BuildGET();
+
+        Response response = establishConnection(request);
+
+        // processes and handles the return events from the response calls
+        return processResponse(response);
+
+    }
+
+    public Response GET(HashMap<String, String> params)throws UnauthorizedException, NetworkErrorException{
+        okhttp3.Request request = requestBuilder.BuildGET(params);
+
+        Response response = establishConnection(request);
+
+        // processes and handles the return events from the response calls
+        return processResponse(response);
     }
 
     /*

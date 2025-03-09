@@ -1,5 +1,6 @@
 package com.example.biovision.API.Plant;
 
+import com.example.biovision.API.Connection.exception.NetworkErrorException;
 import com.example.biovision.API.Connection.exception.RuntimeTimeoutException;
 import com.example.biovision.API.Connection.exception.UnauthorizedException;
 import com.example.biovision.API.Request.Request;
@@ -23,13 +24,13 @@ public class PlantRequest {
         this.api_key = api_key;
     }
 
-    public Response plantSearch(String q) throws IOException, RuntimeTimeoutException, UnauthorizedException {
+    public Response plantSearch(String q) throws UnauthorizedException, NetworkErrorException {
         Request request = new Request(api_key, "https://bio-vision-api.vercel.app/api/v1/plant/search");
 
         HashMap<String, String> params = new HashMap<>();
         params.put("q", q);
 
-        Response response = request.GET((HashMap<String, String>) params);
+        Response response = request.GET(params);
         return response;
     }
 
