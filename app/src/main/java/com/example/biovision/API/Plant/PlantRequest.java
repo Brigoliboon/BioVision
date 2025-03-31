@@ -34,10 +34,9 @@ public class PlantRequest {
         return response;
     }
 
-    public Response plantScan(JSONObject payload) {
-        Request request = new Request(api_key, "bio-vision-api.vercel.app/identification");
-        request.POST(payload);
-
-        return null;
+    public ResponseBody plantScan(JSONObject payload) {
+        Request request = new Request(api_key, "https://bio-vision-api.vercel.app/api/v1/plant/identification");
+        Response r = request.POST(payload);
+        return r.body();
     }
 }

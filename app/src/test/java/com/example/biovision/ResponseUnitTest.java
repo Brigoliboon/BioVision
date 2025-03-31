@@ -3,12 +3,20 @@ package com.example.biovision;
 import com.example.biovision.API.Connection.exception.RuntimeTimeoutException;
 import com.example.biovision.API.Connection.exception.UnauthorizedException;
 import com.example.biovision.API.Plant.PlantRequest;
+import com.example.biovision.API.Plant.util.PayloadGenerator;
 import com.example.biovision.API.Request.Request;
+import com.example.biovision.API.Request.util.JSONParser;
+import com.example.biovision.Camera.util.ImageProcess;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
+
+import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 
 import okhttp3.Response;
@@ -32,7 +40,13 @@ public class ResponseUnitTest {
     }
 
     @Test
-    public void ScanPlant(){
+    public void ScanPlant() throws JSONException, IOException {
+        PlantRequest plantAPI = new PlantRequest("qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL");
+        // Parse sample image into b64
+        String b64 = ImageProcess.compressAndEncodeImage("D:\\Central Mindanao University\\projects\\BioVision\\app\\src\\test\\java\\com\\example\\biovision\\img.png");
+        JSONObject payload = PayloadGenerator.generatePayload(b64);
+        ResponseBody r = plantAPI.plantScan(payload);
 
+        System.out.println(r.string());
     }
 }

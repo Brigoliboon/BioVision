@@ -1,7 +1,6 @@
 package com.example.biovision;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -20,7 +19,6 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.biovision.API.Connection.AuthenticationStatus;
 import com.example.biovision.API.Connection.Connection;
 import com.example.biovision.API.Connection.exception.NetworkErrorException;
-import com.example.biovision.API.Connection.exception.RuntimeTimeoutException;
 
 import java.net.SocketTimeoutException;
 import java.util.concurrent.ExecutorService;
@@ -61,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 if (finalStatus == AuthenticationStatus.AUTHENTICATED) {
                     Toast.makeText(MainActivity.this,"Connection Established", Toast.LENGTH_SHORT).show();
                     handler.postDelayed(() -> {
-                        Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                        Intent i = new Intent(MainActivity.this, CameraActivity.class);
                         startActivity(i);
                         finish();
                     }, 3000);

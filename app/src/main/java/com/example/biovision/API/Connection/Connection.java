@@ -27,7 +27,7 @@ public class Connection {
     }
 
     public boolean isAuthorized() throws NetworkErrorException {
-        Request request = new Request(apiKey, "https://bio-vision-api.vercel.app/auth");
+        Request request = new Request(apiKey, "https://bio-vision-api.vercel.app/auth/");
 
         try {
             Response response = request.GET();

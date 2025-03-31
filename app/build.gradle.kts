@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.biovision"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -54,8 +54,11 @@ dependencies {
     implementation(libs.annotation)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.play.services.location)
+
     testImplementation(libs.junit)
     testImplementation(libs.monitor)
+    testImplementation("org.json:json:20140107")
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }

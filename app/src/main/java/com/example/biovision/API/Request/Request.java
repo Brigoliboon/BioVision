@@ -17,6 +17,8 @@ import java.sql.Time;
 import java.util.HashMap;
 import java.util.concurrent.TimeoutException;
 
+import javax.annotation.Nullable;
+
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
@@ -37,6 +39,7 @@ public class Request implements GET, POST{
         this.requestBuilder = new RequestBuilder(api_key, url, RequestType.GET);
     }
 
+    @Nullable
     // Helper methods
     private Response processResponse(Response response) throws UnauthorizedException, NetworkErrorException{
         if (response.isSuccessful()) {
@@ -101,7 +104,7 @@ public class Request implements GET, POST{
     /*
      * THIS SECTION BEGINS THE POST METHOD OVERLOADS
      * */
-    public Response POST(JSONObject payload){
+    public Response POST(JSONObject payload) throws RuntimeException{
         //TODO: Implement POST method
 
         String json = payload.toString();

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/dialog_bg"
     >
     <LinearLayout
@@ -28,7 +28,7 @@
             android:orientation="vertical"
             android:layout_weight="1">
             <TextView
-                android:id="@+id/target_title"
+            android:id="@+id/target_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dryopteris filix-mas"
@@ -45,10 +45,12 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/askAI_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ask AI"
             android:textColor="@color/textColorPrimary"/>
+
         <ImageView
             android:id="@+id/plant_menu"
             android:layout_width="25dp"
@@ -56,18 +58,21 @@
             android:src="@drawable/bullet_menu"
             />
     </LinearLayout>
+
     <ImageView
+        android:id="@+id/sample_img"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:src="@drawable/sample_picture"
         android:scaleType="centerCrop"/>
 
     <TextView
+        android:id="@+id/short_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/textColorSecondary"
         android:text="@string/lorem_ipsum"
-        android:lines="3"/>
+        android:fadingEdge="horizontal"/>
 
     <LinearLayout
         android:layout_width="match_parent"

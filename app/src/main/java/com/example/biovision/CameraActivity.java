@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.Manifest;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -34,17 +37,36 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.biovision.API.Plant.PlantRequest;
+import com.example.biovision.API.Plant.util.PayloadGenerator;
+import com.example.biovision.Camera.util.ImageProcess;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.BreakIterator;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-public class HomeActivity extends AppCompatActivity {
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import okhttp3.ResponseBody;
+public class CameraActivity extends AppCompatActivity {
     ImageButton capture; // The id element for the capture button
     SearchView search_bar; // The id element for search compat query
     private PreviewView previewView; // The id element for the preview surface of camera view
+    ImageView target_profile;
+    TextView target_title;
+    TextView match_percent;
+    ImageView sample_img;
+    TextView short_desc;
+
     /*
     * Camera Lens State
     *
@@ -53,6 +75,9 @@ public class HomeActivity extends AppCompatActivity {
     *-1: Camera Facing Unknown
     * */
     int cameraFacing = CameraSelector.LENS_FACING_BACK; // Start the camera on state 1 by default
+    PlantRequest plantAPI = new PlantRequest("qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL");
+
+    private FusedLocationProviderClient fusedLocationClient;
     private final ActivityResultLauncher<String> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), new ActivityResultCallback<Boolean>() {
         @Override
         public void onActivityResult(Boolean result) {
@@ -74,7 +99,7 @@ public class HomeActivity extends AppCompatActivity {
             return insets;
         });
 
-        showDialog();
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -84,30 +109,54 @@ public class HomeActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         previewView = findViewById(R.id.cameraPreview);
         capture = findViewById(R.id.capture);
-
         // Checks in android manifest files if the permission is listed and is granted
-        if (ContextCompat.checkSelfPermission(HomeActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(CameraActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             activityResultLauncher.launch(Manifest.permission.CAMERA);
         }else {
             startCamera(cameraFacing);
         }
     }
 
+    private void getLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            return;
+        }
+        fusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if (location != null) {
+                    double latitude = location.getLatitude();
+                    double altitude = location.getAltitude(); // Altitude in meters
+                    BreakIterator locationText = null;
+                    locationText.setText("Latitude: " + latitude + "\nAltitude: " + altitude + " meters");
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            getLocation();
+        }
+    }
+
     public void debugger(String message){
-        Toast.makeText(HomeActivity.this,message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(CameraActivity.this,message, Toast.LENGTH_SHORT).show();
     }
     public void startCamera(int cameraFacing){
         /*
         * Starts the camera and displays on a surfaceView
         * */
-
-        showDialog();
         ListenableFuture listenableFuture = ProcessCameraProvider.getInstance(this);
         listenableFuture.addListener(() -> {
             try {
                 // Displays to indicate that the Camera is initialized.
                 // TODO needs to be removed; for debugging purposes only
-                Toast.makeText(HomeActivity.this, "Camera Started", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CameraActivity.this, "Camera Started", Toast.LENGTH_SHORT).show();
 
                 ProcessCameraProvider cameraProvider = (ProcessCameraProvider) listenableFuture.get();
 
@@ -126,14 +175,14 @@ public class HomeActivity extends AppCompatActivity {
 
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                     Camera camera = cameraProvider.bindToLifecycle(this, cameraSelector, imageCapture, preview);
-                    Toast.makeText(HomeActivity.this,camera.getCameraInfo().getCameraState().getValue().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CameraActivity.this,camera.getCameraInfo().getCameraState().getValue().toString(), Toast.LENGTH_SHORT).show();
 
                 }
                 capture.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View view) {
 
-                        if (ContextCompat.checkSelfPermission(HomeActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                        if (ContextCompat.checkSelfPermission(CameraActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                             activityResultLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE);
                         }else {
                             takePicture(imageCapture);
@@ -149,19 +198,34 @@ public class HomeActivity extends AppCompatActivity {
     //TODO Organize the folder-file saving structure
     public void takePicture(ImageCapture imageCapture){
         debugger("Taking a Picture");
-        showDialog();
 //        saves the picture after taking it
         final File file = new File(getExternalFilesDir(null), System.currentTimeMillis() + ".jpg");
         ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
         imageCapture.takePicture(outputFileOptions, Executors.newCachedThreadPool(), new ImageCapture.OnImageSavedCallback() {
-
             @Override
             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
-//                debugger("Image Saving");
+                String b64Image = ImageProcess.compressAndEncodeImage(file.getPath());
+                JSONObject payload = null;
+                try {
+                    payload = PayloadGenerator.generatePayload(b64Image);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+                ResponseBody result = plantAPI.plantScan(payload);
+
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        capture.setEnabled(false);
+                        {
+//                            displayScannedData("", result.toString(), "sample", "", "yes yes");
+                            try {
+                                showDialog(result);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                            capture.setEnabled(true);
+                        }
                     }
                 });
                 // To avoid spamming, disable the button during the saving process
@@ -176,7 +240,7 @@ public class HomeActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(HomeActivity.this, "Failed to save: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CameraActivity.this, "Failed to save: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
                 startCamera(cameraFacing);
@@ -184,12 +248,23 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    public void showDialog(){
+    public void showDialog(ResponseBody content) throws IOException {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog. setContentView(R.layout.bottomsheetlayout);
-        // Declare and Implement inside elements
 
+        // Ensures that the bottom sheet layout ids are accessed
+        View sheetView = getLayoutInflater().inflate(R.layout.bottomsheetlayout, null);
+        dialog.setContentView(sheetView);
+
+        // Declare and Implement inside elements
+        short_desc = sheetView.findViewById(R.id.short_desc);
+        short_desc.setText(content.string());
+
+//        target_profile.setImageURI(Uri.parse("https://images.pexels.com/photos/39803/pexels-photo-39803.jpeg?cs=srgb&dl=food-healthy-apple-39803.jpg&fm=jpg"));
+//        target_title.setText("Sample");
+//        match_percent.setText("https://images.pexels.com/photos/39803/pexels-photo-39803.jpeg?cs=srgb&dl=food-healthy-apple-39803.jpg&fm=jpg");
+////        sample_img.setImageURI(Uri.parse(SampleimgURI));
+//        short_desc.setText("https://images.pexels.com/photos/39803/pexels-photo-39803.jpeg?cs=srgb&dl=food-healthy-apple-39803.jpg&fm=jpg");
         // Show
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);

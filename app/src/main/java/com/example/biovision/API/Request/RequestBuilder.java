@@ -14,9 +14,6 @@ import okhttp3.Response;
 public class RequestBuilder {
     private String api_key;
     private String url;
-    private String request_body;
-
-    private final OkHttpClient client = new OkHttpClient();
 
     public RequestBuilder(String api_key, String url, RequestType type){
         this.api_key = api_key;
