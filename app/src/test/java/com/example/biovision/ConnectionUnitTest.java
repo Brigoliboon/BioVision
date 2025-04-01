@@ -1,25 +1,17 @@
 package com.example.biovision;
 
-import android.content.Context;
-
-import com.example.biovision.API.Connection.Connection;
-import com.example.biovision.API.Connection.exception.NetworkErrorException;
-import com.example.biovision.API.Connection.exception.RuntimeTimeoutException;
-import com.example.biovision.API.Connection.exception.UnauthorizedException;
-import com.example.biovision.API.Request.Request;
-
-import androidx.test.InstrumentationRegistry;
+import com.example.biovision.data.API.Connection.Connection;
+import com.example.biovision.data.API.Connection.exception.NetworkErrorException;
+import com.example.biovision.data.API.Connection.exception.RuntimeTimeoutException;
+import com.example.biovision.data.API.Connection.exception.UnauthorizedException;
+import com.example.biovision.data.API.Request.Request;
 
 
-import org.checkerframework.checker.units.qual.C;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
 import static org.junit.Assert.assertEquals;
 
 import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
-
-import okhttp3.Response;
 
 public class ConnectionUnitTest {
 

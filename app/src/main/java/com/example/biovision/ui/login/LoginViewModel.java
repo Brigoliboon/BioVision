@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
-import com.example.biovision.data.LoginRepository;
-import com.example.biovision.data.Result;
-import com.example.biovision.data.model.LoggedInUser;
+import com.example.biovision.data.login.LoginRepository;
+import com.example.biovision.data.login.Result;
+import com.example.biovision.data.login.model.LoggedInUser;
 import com.example.biovision.R;
 
 public class LoginViewModel extends ViewModel {

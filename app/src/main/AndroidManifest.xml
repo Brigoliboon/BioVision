@@ -36,14 +36,14 @@
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".CameraActivity"
+            android:name=".ui.camera.CameraActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="CameraActivity"
             android:theme="@style/Theme.BioVision"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

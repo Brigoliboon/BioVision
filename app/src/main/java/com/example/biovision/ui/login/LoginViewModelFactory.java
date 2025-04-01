@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 
-import com.example.biovision.data.LoginDataSource;
-import com.example.biovision.data.LoginRepository;
+import com.example.biovision.data.login.LoginDataSource;
+import com.example.biovision.data.login.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

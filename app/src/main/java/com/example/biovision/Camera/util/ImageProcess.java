@@ -25,6 +25,11 @@ public class ImageProcess {
         }
     }
 
+    /**
+     *  Encodes the image into base64 string format.
+     * @param imagePath
+     * @return The base 64 of the image
+     */
     public static String compressAndEncodeImage(String imagePath) {
         // Load the image
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -38,5 +43,14 @@ public class ImageProcess {
         // Convert to Base64
         byte[] byteArray = byteArrayOutputStream.toByteArray();
         return Base64.getEncoder().encodeToString(byteArray);
+    }
+
+    /**
+     * Checks the resolution of an image whether it is recognizable enough to be accepted or not
+     * @param imagePath the path of the image
+     * @return The Image Quality enum
+     */
+    public static void checkImgQuality(String imagePath){
+        // TODO: Implement to check the quality of an image
     }
 }

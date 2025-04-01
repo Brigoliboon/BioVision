@@ -1,0 +1,889 @@
+{
+  "access_token": "Du3LBGJIHV0RbhC",
+  "model_version": "plant_id:5.0.0",
+  "custom_id": null,
+  "input": {
+    "latitude": 8.4770816,
+    "longitude": 124.6461952,
+    "similar_images": true,
+    "health": "all",
+    "images": [
+      "https://plant.id/media/imgs/b0137953786e4d089aa0a3644a8dfea2.jpg"
+    ],
+    "datetime": "2025-03-31"
+  },
+  "result": {
+    "classification": {
+      "suggestions": [
+        {
+          "id": "bf10d7fdefbe4b9c",
+          "name": "Argyranthemum frutescens",
+          "probability": 0.1656,
+          "similar_images": [
+            {
+              "id": "2faf820f0c561d3fe5c5b5803b40d6004db84980",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/2fa/f820f0c561d3fe5c5b5803b40d6004db84980.jpeg",
+              "license_name": "CC BY-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "citation":  "Tony Wills",
+              "similarity": 0.667,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/2fa/f820f0c561d3fe5c5b5803b40d6004db84980.small.jpeg"
+            },
+            {
+              "id": "75afda794fedd09e0eeab9e6d7039c5a18cdc93c",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/75a/fda794fedd09e0eeab9e6d7039c5a18cdc93c.jpg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Line Juul Nielsen",
+              "similarity": 0.651,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/75a/fda794fedd09e0eeab9e6d7039c5a18cdc93c.small.jpg"
+            }
+          ],
+          "details": {
+            "common_names": [
+              "marguerite",
+              "Marguerite daisy",
+              "Federation daisy"
+            ],
+            "taxonomy": {
+              "class": "Magnoliopsida",
+              "genus": "Argyranthemum",
+              "order": "Asterales",
+              "family": "Asteraceae",
+              "phylum": "Tracheophyta",
+              "kingdom": "Plantae"
+            },
+            "url": "https://en.wikipedia.org/wiki/Argyranthemum_frutescens",
+            "gbif_id": 3104491,
+            "inaturalist_id": 181635,
+            "rank": "species",
+            "description": {
+              "value": "Argyranthemum frutescens, known as Paris daisy, marguerite or marguerite daisy, is a perennial plant known for its flowers. It is native to the Canary Islands (part of Spain). Hybrids derived from this species (garden marguerites) are widely cultivated as ornamental plants in private gardens and public parks in many countries, and have naturalized in Italy and southern California. There are many cultivars, but the most common has white petals.",
+              "citation": "https://en.wikipedia.org/wiki/Argyranthemum_frutescens",
+              "license_name": "CC BY-SA 3.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "synonyms": [
+              "Anthemis frutescens",
+              "Argyranthemum frutescens var. frutescens",
+              "Chrysanthemum carnosulum",
+              "Chrysanthemum foliosum",
+              "Chrysanthemum frutescens",
+              "Chrysanthemum frutescens var. frutescens",
+              "Phymaspermum carnosulum",
+              "Pyrethrum frutescens"
+            ],
+            "image": {
+              "value": "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/0ab/0aba662bfc5fbec60f99e19185eb52225d6e812b.jpg",
+              "citation": "//commons.wikimedia.org/wiki/User:Alvesgaspar",
+              "license_name": "CC BY-SA 3.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "edible_parts": null,
+            "watering": {
+              "max": 2,
+              "min": 2
+            },
+            "best_light_condition": "This plant thrives in full sun, needing at least six hours of direct sunlight each day. It can tolerate partial shade, but too little light can result in fewer blooms and leggy growth. If you're growing it indoors, place it near a south-facing window where it can get plenty of light. In areas with very hot summers, some afternoon shade can help prevent the leaves from scorching.",
+            "best_soil_type": "For optimal growth, this plant prefers well-draining soil. A mix that includes sand, loam, and organic matter works well. Good drainage is essential to prevent water from pooling around the roots, which can cause rot. If you're planting in a container, make sure it has drainage holes and use a high-quality potting mix designed for flowering plants.",
+            "common_uses": "This plant is commonly used as an ornamental in gardens, borders, and containers. Its vibrant flowers make it a popular choice for adding color to outdoor spaces. It's also used in hanging baskets and window boxes. Some people grow it indoors as a houseplant, especially in areas where outdoor gardening is limited by climate. Its versatility and ease of care make it a popular choice for both novice and experienced gardeners.",
+            "cultural_significance": "In various cultures, this plant is often associated with cheerfulness and positivity due to its bright, daisy-like flowers. It's commonly used in gardens and landscapes to add a splash of color. In some regions, it's also used in traditional floral arrangements and ceremonies. Its long blooming season makes it a favorite for both public and private gardens.",
+            "toxicity": "This plant is generally considered non-toxic to both humans and animals. However, it's always a good idea to discourage pets and children from chewing on any plant material. While it doesn't pose a significant risk, ingesting large amounts of any plant can cause digestive upset. If you have concerns, consult with a veterinarian or a medical professional.",
+            "best_watering": "Watering this plant properly is crucial for its health. It prefers consistently moist soil but doesn't like to sit in water. Overwatering can lead to root rot, so it's important to let the top inch of soil dry out between waterings. During the hotter months, you might need to water more frequently, while in cooler weather, less frequent watering is usually sufficient. Always check the soil moisture before watering to avoid any issues.",
+            "language": "en",
+            "entity_id": "bf10d7fdefbe4b9c"
+          }
+        },
+        {
+          "id": "870270493d867ba5",
+          "name": "Anthemis cotula",
+          "probability": 0.1477,
+          "similar_images": [
+            {
+              "id": "a486d3179c76e433c904ce32b9a5e7e62ebcfab2",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/a48/6d3179c76e433c904ce32b9a5e7e62ebcfab2.jpeg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Severin Ronald",
+              "similarity": 0.733,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/a48/6d3179c76e433c904ce32b9a5e7e62ebcfab2.small.jpeg"
+            },
+            {
+              "id": "33e87c503e4d3bc69aabf9e2fb8119434cc0886a",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/33e/87c503e4d3bc69aabf9e2fb8119434cc0886a.jpeg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Millie Basden",
+              "similarity": 0.726,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/33e/87c503e4d3bc69aabf9e2fb8119434cc0886a.small.jpeg"
+            }
+          ],
+          "details": {
+            "common_names": [
+              "stinking chamomile",
+              "Mayweed",
+              "Stinking mayweed",
+              "Common Dogfennel",
+              "Dogfennel",
+              "Foetid Chamomile",
+              "Poison Daisy"
+            ],
+            "taxonomy": {
+              "class": "Magnoliopsida",
+              "genus": "Anthemis",
+              "order": "Asterales",
+              "family": "Asteraceae",
+              "phylum": "Tracheophyta",
+              "kingdom": "Plantae"
+            },
+            "url": "https://en.wikipedia.org/wiki/Anthemis_cotula",
+            "gbif_id": 8035698,
+            "inaturalist_id": 52841,
+            "rank": "species",
+            "description": {
+              "value": "Anthemis cotula, also known as stinking chamomile, or mayweed, is a flowering annual plant with a noticeable and strong odor. The odor is often considered unpleasant, and it is from this that it gains the common epithet \"stinking\". In pre-colonial times, its distribution was limited to the Old Continent and Africa; though it was established in most of Europe, it was not present in Finland, Ireland, or the northernmost reaches of Scotland, in spite of the fact that these countries feature climatic regions favorable to this plant and are in proximity to countries where the species is native, such as Russia, Estonia, Lithuania and England. It has successfully migrated to the New Europes where it can be found growing in meadows, alongside roads, and in fields.The name \"cotula\" is the Latin form of κοτύλη kotylē,  the Greek word for \"small cup\", describing the shape of the flowers; it was assigned by Carl Linnaeus in his work Species Plantarum in 1753.Anthemis cotula is also known by a wide variety of other names, including mather, dog- or hog's-fennel, dog-finkle, dog-daisy, pig-sty-daisy, chigger-weed, mayweed, Johnnyweed, maroute, Maruta cotula, Cotula Maruta foetida, Manzanilla loca, wild chamomile, Camomille puante. Foetid Chamomile, maithes, maithen, mathor mayweed chamomile, camomille des chiens, camomille puante, stinkende Hundskamille, camomila-de-cachorro, macéla-fétida, and manzanilla hedionda.",
+              "citation": "https://en.wikipedia.org/wiki/Anthemis_cotula",
+              "license_name": "CC BY-SA 3.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "synonyms": [
+              "Anthemis abyssinica",
+              "Anthemis coronata",
+              "Anthemis cotula subsp. cotula",
+              "Anthemis cotula subsp. psorosperma",
+              "Anthemis cotula var. coronata",
+              "Anthemis cotula var. cotula",
+              "Anthemis cotula var. lithuanica",
+              "Anthemis cotula var. vectensis",
+              "Anthemis cotula-foetida",
+              "Anthemis cotuloides",
+              "Anthemis foetida",
+              "Anthemis foetida var. foetida",
+              "Anthemis foetida var. vectensis",
+              "Anthemis psorosperma",
+              "Anthemis ramosa",
+              "Anthemis sulphurea",
+              "Chamaemelum cotula",
+              "Chamaemelum foetidum",
+              "Maruta cotula",
+              "Maruta cotula var. cotula",
+              "Maruta foetida",
+              "Maruta vulgaris",
+              "Matricaria cotula"
+            ],
+            "image": {
+              "value": "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/2a2/2a2bc03b3facac8b16658a33dfd6115b7efa0fcb.png",
+              "citation": null,
+              "license_name": "CC0",
+              "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+            },
+            "edible_parts": [
+              "leaves"
+            ],
+            "watering": null,
+            "best_light_condition": "This plant thrives in full sun, requiring at least six hours of direct sunlight each day. It can tolerate partial shade, but too little light can result in leggy growth and fewer flowers. If growing indoors, place it near a south-facing window to ensure it gets enough light. In areas with intense afternoon sun, some light shade can help prevent scorching.",
+            "best_soil_type": "The best soil for this plant is well-draining and slightly sandy. It prefers a neutral to slightly acidic pH but can tolerate a range of soil types as long as they are not too heavy or clayey. Adding organic matter like compost can improve soil structure and fertility, promoting healthier growth. Avoid soils that retain too much moisture, as this can lead to root problems.",
+            "common_uses": "Common uses for this plant include ornamental purposes in gardens and landscapes due to its attractive flowers. It is sometimes used in dried flower arrangements and potpourri. Historically, it has been used in traditional medicine, although caution is advised due to its toxic properties. Some people also use it as a natural insect repellent in gardens.",
+            "cultural_significance": "Culturally, this plant has been used in various traditional practices and folklore. In some cultures, it is believed to have medicinal properties and has been used in herbal remedies. However, due to its toxicity, its use in modern herbal medicine is limited. It has also been associated with certain rituals and symbolic meanings in different regions.",
+            "toxicity": "This plant is toxic to both humans and animals if ingested. It can cause skin irritation upon contact, so it's advisable to wear gloves when handling it. Ingesting any part of the plant can lead to symptoms such as nausea, vomiting, and diarrhea. Keep it out of reach of pets and children to prevent accidental ingestion.",
+            "best_watering": "For optimal watering, it's important to keep the soil consistently moist but not waterlogged. Water the plant deeply once the top inch of soil feels dry to the touch. Overwatering can lead to root rot, so ensure good drainage. During hot, dry periods, you may need to water more frequently, but always check the soil moisture before adding more water.",
+            "language": "en",
+            "entity_id": "870270493d867ba5"
+          }
+        },
+        {
+          "id": "b59dca487f2b3bcc",
+          "name": "Tripleurospermum inodorum",
+          "probability": 0.1054,
+          "similar_images": [
+            {
+              "id": "17cdd3291d0b2b30a542635343306018237c04a5",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/17c/dd3291d0b2b30a542635343306018237c04a5.jpeg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Yurii Basov",
+              "similarity": 0.705,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/17c/dd3291d0b2b30a542635343306018237c04a5.small.jpeg"
+            },
+            {
+              "id": "22765557e931615b0abecc88f8564e2007667bfa",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/227/65557e931615b0abecc88f8564e2007667bfa.jpeg",
+              "license_name": "CC0",
+              "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+              "citation": "bulatik",
+              "similarity": 0.662,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/227/65557e931615b0abecc88f8564e2007667bfa.small.jpeg"
+            }
+          ],
+          "details": {
+            "common_names": [
+              "scentless mayweed",
+              "false chamomile",
+              "Scentless False Mayweed",
+              "Scentless Chamomile"
+            ],
+            "taxonomy": {
+              "class": "Magnoliopsida",
+              "genus": "Tripleurospermum",
+              "order": "Asterales",
+              "family": "Asteraceae",
+              "phylum": "Tracheophyta",
+              "kingdom": "Plantae"
+            },
+            "url": "https://en.wikipedia.org/wiki/Tripleurospermum_inodorum",
+            "gbif_id": 3104179,
+            "inaturalist_id": 79441,
+            "rank": "species",
+            "description": {
+              "value": "Tripleurospermum inodorum, common names scentless false mayweed, scentless mayweed, scentless chamomile, wild chamomile, mayweed, false chamomile, and Baldr's brow, is the type species of Tripleurospermum. This plant is native to Eurasia and North Africa, and introduced to North America, where it is commonly found in fields, fallow land and gardens.Historically included the genus Matricaria, Tripleurospermum inodorum has been the subject of some controversy, with many revisions in recent years. The Flora Europaea uses Matricaria perforata for this species. Synonyms/other scientific names include Tripleurospermum perforatum (Mérat) Lainz, Tripleurospermum maritimum subsp. inodorum.",
+              "citation": "https://en.wikipedia.org/wiki/Tripleurospermum_inodorum",
+              "license_name": "CC BY-SA 3.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "synonyms": [
+              "Anthemis perforata",
+              "Anthemis vulgaris",
+              "Camomilla inodora",
+              "Chamaemelum inodorum",
+              "Chamaemelum inodorum var. inodorum",
+              "Chamomilla inodora",
+              "Chamomilla praecox",
+              "Chrysanthemum grandiflorum",
+              "Chrysanthemum inodorum",
+              "Chrysanthemum inodorum liguliflorum",
+              "Chrysanthemum maritimum subsp. inodorum",
+              "Chrysanthemum maritimum var. agreste",
+              "Chrysanthemum maritimum var. inodorum",
+              "Dibothrospermum agreste",
+              "Dibothrospermum pusillum",
+              "Gastrostylum praecox",
+              "Matricaria elegans",
+              "Matricaria inodora",
+              "Matricaria inodora agrestis",
+              "Matricaria inodora biennis",
+              "Matricaria inodora f. agrestis",
+              "Matricaria inodora inodora",
+              "Matricaria inodora raii",
+              "Matricaria inodora tubulosa",
+              "Matricaria inodora var. agrestis",
+              "Matricaria inodora var. grandiflora",
+              "Matricaria inodora var. inodora",
+              "Matricaria inodora var. pusilla",
+              "Matricaria maritima",
+              "Matricaria maritima subsp. agrestis",
+              "Matricaria maritima subsp. inodora",
+              "Matricaria maritima var. agrestis",
+              "Matricaria maritima var. inodora",
+              "Matricaria perforata",
+              "Matricaria pumila",
+              "Matricaria salina",
+              "Matricaria suaveolens",
+              "Matricaria suaveolens suaveolens",
+              "Metricaria perforata",
+              "Pyrethrum inodorum",
+              "Pyrethrum inodorum var. inodorum",
+              "Pyrethrum maritimum var. salinum",
+              "Rhytidospermum inodorum",
+              "Trallesia matricarioides",
+              "Tripleurospermum bienne",
+              "Tripleurospermum maritimum subsp. inodorum",
+              "Tripleurospermum maritimum var. agreste",
+              "Tripleurospermum maritimum var. pusillum",
+              "Tripleurospermum perforatum",
+              "Tripleurospermum praecox",
+              "Tripleurospermuminodorum"
+            ],
+            "image": {
+              "value": "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/dcb/dcbbbc626edcb5dffc70d65b36abe11c7a64c0cf.jpg",
+              "citation": null,
+              "license_name": "CC0",
+              "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+            },
+            "edible_parts": null,
+            "watering": null,
+            "best_light_condition": "This plant prefers full sun to partial shade. It grows best in areas where it can receive at least six hours of direct sunlight each day. While it can tolerate some shade, too much can result in leggy growth and fewer flowers. Positioning it in a sunny spot will encourage robust growth and abundant blooming.",
+            "best_soil_type": "The ideal soil for this plant is well-draining and moderately fertile. It can grow in a variety of soil types, including sandy, loamy, and clay soils, as long as there is good drainage. Adding organic matter like compost can improve soil fertility and structure, promoting healthier growth.",
+            "common_uses": "Common uses for this plant are mostly ornamental. It is often found in wildflower mixes and used in naturalized garden settings. Its daisy-like flowers can add a cheerful touch to garden borders and meadows. Additionally, it can be used in erosion control due to its ability to establish quickly and cover ground effectively.",
+            "cultural_significance": "Culturally, this plant does not have significant historical or symbolic importance. It is often considered a common wildflower or weed in many regions. Its presence in fields and meadows is more a testament to its hardiness and adaptability rather than any deep cultural significance.",
+            "toxicity": "This plant is generally non-toxic to both humans and animals. It does not contain any known harmful substances that could cause poisoning if ingested. However, as with any plant, it's always best to prevent pets and children from eating it to avoid any potential digestive upset.",
+            "best_watering": "Watering this plant requires a balanced approach. It thrives in moderately moist soil but can tolerate short periods of drought. Overwatering can lead to root rot, so it's important to let the soil dry out slightly between waterings. During hot, dry spells, more frequent watering may be necessary, but always ensure good drainage to prevent waterlogging.",
+            "language": "en",
+            "entity_id": "b59dca487f2b3bcc"
+          }
+        },
+        {
+          "id": "5699212e5346abf8",
+          "name": "Leucanthemum vulgare",
+          "probability": 0.087,
+          "similar_images": [
+            {
+              "id": "859720588763e47c06417b018e6ff0b72a33031c",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/859/720588763e47c06417b018e6ff0b72a33031c.jpeg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "María Regina Silva",
+              "similarity": 0.702,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/859/720588763e47c06417b018e6ff0b72a33031c.small.jpeg"
+            },
+            {
+              "id": "8e5541e70b4702723a62fd9754cdd983610433c7",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/8e5/541e70b4702723a62fd9754cdd983610433c7.jpeg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.678,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/8e5/541e70b4702723a62fd9754cdd983610433c7.small.jpeg"
+            }
+          ],
+          "details": {
+            "common_names": [
+              "Oxeye Daisy",
+              "Dog Daisy",
+              "Garden Chrysanthemum",
+              "White Daisy",
+              "White Weed",
+              "Marguerite Daisy"
+            ],
+            "taxonomy": {
+              "class": "Magnoliopsida",
+              "genus": "Leucanthemum",
+              "order": "Asterales",
+              "family": "Asteraceae",
+              "phylum": "Tracheophyta",
+              "kingdom": "Plantae"
+            },
+            "url": "https://en.wikipedia.org/wiki/Leucanthemum_vulgare",
+            "gbif_id": 8848598,
+            "inaturalist_id": 56057,
+            "rank": "species",
+            "description": {
+              "value": "Leucanthemum vulgare, commonly known as the ox-eye daisy, oxeye daisy, dog daisy, marguerite (French: Marguerite commune, \"common marguerite\") and other common names, is a widespread flowering plant native to Europe and the temperate regions of Asia, and an introduced plant to North America, Australia and New Zealand.",
+              "citation": "https://en.wikipedia.org/wiki/Leucanthemum_vulgare",
+              "license_name": "CC BY-SA 3.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "synonyms": [
+              "Chamaemelum leucanthemum",
+              "Chrysanthemum ircutianum",
+              "Chrysanthemum leucanthemum",
+              "Chrysanthemum leucanthemum leucanthemum",
+              "Chrysanthemum leucanthemum subsp. lanceolatum",
+              "Chrysanthemum leucanthemum subsp. leucanthemum",
+              "Chrysanthemum leucanthemum subsp. subpinnatifidum",
+              "Chrysanthemum leucanthemum var. leucanthemum",
+              "Chrysanthemum montanum subsp. heterophyllum",
+              "Chrysanthemum praecox",
+              "Chrysanthemum vulgare",
+              "Chrysanthemum vulgare subsp. vulgare",
+              "Chrysanthemum vulgare var. vulgare",
+              "Leucanthemum atratum subsp. heterophyllum",
+              "Leucanthemum ceratophylloides var. barrelieri",
+              "Leucanthemum leucanthemum",
+              "Leucanthemum praecox",
+              "Leucanthemum vulagre",
+              "Leucanthemum vulgare subsp. incisum",
+              "Leucanthemum vulgare subsp. pinnatifidum",
+              "Leucanthemum vulgare subsp. praecox",
+              "Leucanthemum vulgare var. alpicola",
+              "Leucanthemum vulgare var. pyrenaicum",
+              "Leucanthemum vulgare var. vulgare",
+              "Matricaria leucanthemum",
+              "Pontia vulgaris",
+              "Pyrethrum leucanthemum",
+              "Tanacetum leucanthemum"
+            ],
+            "image": {
+              "value": "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/beb/beb81f88c35d2c33960e4ec3f9a730d9b8a8c896.jpg",
+              "citation": null,
+              "license_name": "CC0",
+              "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+            },
+            "edible_parts": [
+              "leaves",
+              "root",
+              "shoots"
+            ],
+            "watering": {
+              "max": 2,
+              "min": 1
+            },
+            "best_light_condition": "This plant thrives in full sun, requiring at least six hours of direct sunlight each day. It can tolerate partial shade, but too much shade can result in fewer blooms and leggy growth. If grown indoors, place it near a south-facing window to ensure it gets enough light. Adequate sunlight is crucial for healthy growth and abundant flowering.",
+            "best_soil_type": "The plant prefers well-draining soil with a neutral to slightly acidic pH. Sandy loam or loamy soil types are ideal, as they provide good drainage while retaining some moisture. Avoid heavy clay soils that can retain too much water and lead to root rot. Adding organic matter like compost can improve soil structure and fertility.",
+            "common_uses": "This plant is commonly used for ornamental purposes in gardens and landscapes due to its attractive, daisy-like flowers. It is also used in floral arrangements and bouquets. Some people use it in traditional medicine for its purported health benefits, although scientific evidence is limited. Additionally, it can be used in natural pest control, as it attracts beneficial insects like bees and butterflies.",
+            "cultural_significance": "In various cultures, this plant holds symbolic meanings such as purity, innocence, and simplicity. It is often associated with childhood and is a common motif in folklore and literature. In some traditions, it is used in wedding bouquets and floral arrangements to symbolize new beginnings and true love. Its cheerful appearance makes it a popular choice for gardens and public spaces.",
+            "toxicity": "This plant is generally non-toxic to humans and animals. However, some people may experience mild skin irritation or allergic reactions upon contact with the plant. It's always a good idea to wear gloves when handling it, especially if you have sensitive skin. Pets are usually safe around this plant, but it's best to prevent them from chewing on it to avoid any potential digestive upset.",
+            "best_watering": "For optimal watering, it's important to keep the soil consistently moist but not waterlogged. Water the plant deeply once a week, allowing the water to reach the roots. During hot, dry periods, you may need to water more frequently. Avoid overhead watering to prevent fungal diseases; instead, water at the base of the plant. Mulching can help retain soil moisture and reduce the need for frequent watering.",
+            "language": "en",
+            "entity_id": "5699212e5346abf8"
+          }
+        },
+        {
+          "id": "70d82558e93e28f7",
+          "name": "Senecio elegans",
+          "probability": 0.0273,
+          "similar_images": [
+            {
+              "id": "6a37a644a103e3b5198592aef716287c800070dd",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/6a3/7a644a103e3b5198592aef716287c800070dd.jpg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Dave U",
+              "similarity": 0.624,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/6a3/7a644a103e3b5198592aef716287c800070dd.small.jpg"
+            },
+            {
+              "id": "a0b803a12c80a26e7eedf996bedf1e641561a7bd",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/a0b/803a12c80a26e7eedf996bedf1e641561a7bd.jpg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Nathan Odgers",
+              "similarity": 0.609,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/a0b/803a12c80a26e7eedf996bedf1e641561a7bd.small.jpg"
+            }
+          ],
+          "details": {
+            "common_names": [
+              "redpurple ragwort",
+              "Purple Groundsel",
+              "Beach Ragwort",
+              "Veld Ragwort",
+              "Veld Cineraria",
+              "American Groundsel",
+              "Wild Jacobaea"
+            ],
+            "taxonomy": {
+              "class": "Magnoliopsida",
+              "genus": "Senecio",
+              "order": "Asterales",
+              "family": "Asteraceae",
+              "phylum": "Tracheophyta",
+              "kingdom": "Plantae"
+            },
+            "url": "https://en.wikipedia.org/wiki/Senecio_elegans",
+            "gbif_id": 7819589,
+            "inaturalist_id": 79044,
+            "rank": "species",
+            "description": {
+              "value": "Senecio elegans is a species of flowering plant in the aster family known by the common names redpurple ragwort, purple groundsel, wild cineraria and purple ragwort.",
+              "citation": "https://en.wikipedia.org/wiki/Senecio_elegans",
+              "license_name": "CC BY-SA 3.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "synonyms": [
+              "Brachyscome carnosa",
+              "Cacalia carnosa",
+              "Jacobaea elegans",
+              "Kleinia carnosa",
+              "Senecio elegans",
+              "Senecio elegans var. diffusus",
+              "Senecio elegans var. elegans",
+              "Senecio elegans var. erectus",
+              "Senecio pseudoelegans"
+            ],
+            "image": {
+              "value": "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/10f/10f34f1eb7d0ef20dcf6dc5d4ee98b74b0f8911e.jpg",
+              "citation": "//commons.wikimedia.org/wiki/User:SAplants",
+              "license_name": "CC BY-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+            },
+            "edible_parts": null,
+            "watering": null,
+            "best_light_condition": "This plant thrives in bright, indirect light. It can tolerate some direct sunlight, especially in the morning or late afternoon, but too much direct sun can scorch its leaves. If grown indoors, placing it near a window with filtered light is ideal. In outdoor settings, a spot with partial shade will help it grow well without the risk of sunburn.",
+            "best_soil_type": "For optimal growth, this plant prefers well-draining soil. A mix that includes sand, perlite, or pumice can help improve drainage and prevent water from sitting around the roots. A standard potting mix with added organic matter like compost can also work well. Avoid heavy clay soils that retain too much moisture, as they can lead to root problems.",
+            "common_uses": "Common uses for this plant include ornamental purposes in gardens and homes. Its bright, attractive flowers make it a popular choice for adding color to flower beds, borders, and containers. Additionally, it can be used in floral arrangements and as a ground cover in landscaping projects. Despite its toxicity, some traditional practices may use it in controlled, medicinal applications, but this is not recommended without expert guidance.",
+            "cultural_significance": "In some cultures, this plant holds significance due to its vibrant flowers and hardy nature. It is often used in traditional medicine, although its toxic properties mean it must be used with caution. The plant is also sometimes featured in local folklore and is appreciated for its ability to thrive in various conditions, symbolizing resilience and adaptability.",
+            "toxicity": "This plant is toxic to both humans and animals if ingested. It contains pyrrolizidine alkaloids, which can cause liver damage and other health issues. Symptoms of poisoning may include nausea, vomiting, and abdominal pain in humans, and drooling, vomiting, and lethargy in pets. It's important to keep this plant out of reach of children and animals to prevent accidental ingestion.",
+            "best_watering": "Watering this plant properly is crucial for its health. It prefers soil that is consistently moist but not waterlogged. Overwatering can lead to root rot, so it's important to let the top inch of soil dry out between waterings. During the growing season, water it more frequently, but reduce the amount in the winter when the plant's growth slows down. Always use a pot with drainage holes to prevent excess water from accumulating.",
+            "language": "en",
+            "entity_id": "70d82558e93e28f7"
+          }
+        },
+        {
+          "id": "d6a8af8991b922e5",
+          "name": "Chamaemelum fuscatum",
+          "probability": 0.0256,
+          "similar_images": [
+            {
+              "id": "19ca4976f0330ead17a294be80460785b00d21da",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/19c/a4976f0330ead17a294be80460785b00d21da.jpg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Tim Vochten",
+              "similarity": 0.706,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/19c/a4976f0330ead17a294be80460785b00d21da.small.jpg"
+            },
+            {
+              "id": "0c8243bfc447bd24f5d86a4b643cb61cdf5cebea",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/0c8/243bfc447bd24f5d86a4b643cb61cdf5cebea.jpeg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Karim Haddad",
+              "similarity": 0.704,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/0c8/243bfc447bd24f5d86a4b643cb61cdf5cebea.small.jpeg"
+            }
+          ],
+          "details": {
+            "common_names": [
+              "dusky dogfennel",
+              "chamomile"
+            ],
+            "taxonomy": {
+              "class": "Magnoliopsida",
+              "genus": "Chamaemelum",
+              "order": "Asterales",
+              "family": "Asteraceae",
+              "phylum": "Tracheophyta",
+              "kingdom": "Plantae"
+            },
+            "url": "https://www.gbif.org/species/5391595",
+            "gbif_id": 5391595,
+            "inaturalist_id": 76238,
+            "rank": "species",
+            "description": null,
+            "synonyms": [
+              "Anthemis fallax",
+              "Anthemis fuscata",
+              "Anthemis fuscata subsp. minor",
+              "Anthemis fuscata var. fuscata",
+              "Anthemis fuscata var. minor",
+              "Anthemis praecox",
+              "Chamaemelum fuscatum f. minor",
+              "Chamaemelum fuscatum fuscatum",
+              "Chamaemelum fuscatum minor",
+              "Chamaemelumfuscata",
+              "Chamomilla fuscata",
+              "Maruta fuscata",
+              "Ormenis fuscata",
+              "Ormenis maialis",
+              "Perideraea fuscata",
+              "Periderea fuscata"
+            ],
+            "image": {
+              "value": "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/069/0699b997235bd7937c75746c491a1994fba5c452.jpg",
+              "citation": "//commons.wikimedia.org/w/index.php?title=User:Israelsierra&action=edit&redlink=1",
+              "license_name": "CC BY 3.0",
+              "license_url": "https://creativecommons.org/licenses/by/3.0/"
+            },
+            "edible_parts": null,
+            "watering": null,
+            "best_light_condition": "This plant thrives in full sun to partial shade. It prefers at least six hours of direct sunlight each day to grow robustly. In hotter climates, providing some afternoon shade can help protect the plant from scorching. If grown indoors, place it near a south-facing window to ensure it receives adequate light.",
+            "best_soil_type": "The plant grows best in well-draining soil with a neutral to slightly acidic pH. Sandy or loamy soils are ideal as they provide good drainage and aeration. Adding organic matter like compost can improve soil fertility and structure, promoting healthier growth. Avoid heavy clay soils that retain too much moisture.",
+            "common_uses": "Common uses for this plant include its application in herbal teas and natural remedies. It is often used for its calming and soothing effects. Additionally, the plant's essential oils are sometimes extracted for use in aromatherapy and skincare products. Its flowers can also be used in potpourri and other decorative crafts.",
+            "cultural_significance": "Historically, this plant has been valued in various cultures for its medicinal properties and aromatic qualities. It has been used in traditional remedies and herbal practices. Its pleasant fragrance and attractive appearance have also made it a popular choice in ornamental gardening.",
+            "toxicity": "This plant is generally considered non-toxic to both humans and animals. It can be safely grown in gardens and homes without posing a risk to pets or children. However, as with any plant, it's always a good idea to monitor for any allergic reactions or sensitivities.",
+            "best_watering": "For optimal growth, water the plant regularly but avoid overwatering. The soil should be kept consistently moist, especially during the growing season. However, ensure that the soil is well-draining to prevent waterlogging, which can lead to root rot. During the winter months, reduce the frequency of watering as the plant's growth slows down.",
+            "language": "en",
+            "entity_id": "d6a8af8991b922e5"
+          }
+        },
+        {
+          "id": "1160bd8ec6097b56",
+          "name": "Senecio glastifolius",
+          "probability": 0.0254,
+          "similar_images": [
+            {
+              "id": "ee7648c6f3b6730c72f8b6e3807a20c2af2942e8",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/ee7/648c6f3b6730c72f8b6e3807a20c2af2942e8.jpeg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Joe Dillon",
+              "similarity": 0.683,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/ee7/648c6f3b6730c72f8b6e3807a20c2af2942e8.small.jpeg"
+            },
+            {
+              "id": "7e6b524358ea8585a2109504132a3e97521adef5",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/7e6/b524358ea8585a2109504132a3e97521adef5.jpeg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Heidi Meudt",
+              "similarity": 0.59,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/7e6/b524358ea8585a2109504132a3e97521adef5.small.jpeg"
+            }
+          ],
+          "details": {
+            "common_names": [
+              "Woad-leaved ragwort",
+              "Pink ragwort",
+              "Holly-leaved senecio",
+              "Woadleaf Ragwort"
+            ],
+            "taxonomy": {
+              "class": "Magnoliopsida",
+              "genus": "Senecio",
+              "order": "Asterales",
+              "family": "Asteraceae",
+              "phylum": "Tracheophyta",
+              "kingdom": "Plantae"
+            },
+            "url": "https://en.wikipedia.org/wiki/Senecio_glastifolius",
+            "gbif_id": 8419686,
+            "inaturalist_id": 336367,
+            "rank": "species",
+            "description": {
+              "value": "Senecio glastifolius is a species of flowering plant in the aster family known by the common names woad-leaved ragwort, holly-leaved senecio, and pink ragwort. A tall perennial herb, it is native to southern Africa, and it is cultivated as an ornamental plant for its colorful flowers. It has been known to escape cultivation and become naturalized in areas of appropriate climate; it can be found growing wild in parts of New Zealand and Australia.It favours a Mediterranean climate, often coastal, typically colonizing disturbed soil. It is an annual herb producing a single, erect, branching stem which grows to a height 1 to 1.5 metres tall. The serrated leaves are often more coarsely toothed near the leaf base, and feel prickly. The inflorescence bears flower heads lined with black-tipped bracts. They contain a yellowish disc at the centre, with mauve petals.  \n\nSenecio glastifolius is sometimes confused with Senecio elegans, (which also grows by the coast), but the leaves of the two species are different.",
+              "citation": "https://en.wikipedia.org/wiki/Senecio_glastifolius",
+              "license_name": "CC BY-SA 3.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "synonyms": [
+              "Jacobaea glastifolia",
+              "Senecio serratulifolius"
+            ],
+            "image": {
+              "value": "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/5f9/5f9444a105014ad9d413425db748f8d1ae18e0d2.jpg",
+              "citation": "//commons.wikimedia.org/wiki/User:SAplants",
+              "license_name": "CC BY-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+            },
+            "edible_parts": null,
+            "watering": null,
+            "best_light_condition": "This plant thrives in bright light conditions. It does best in full sun to partial shade. If grown indoors, place it near a south or west-facing window where it can get plenty of light. However, it can tolerate some light shade, especially in hotter climates where too much direct sunlight can scorch its leaves. Ensuring it gets enough light will help it grow strong and healthy.",
+            "best_soil_type": "For optimal growth, this plant prefers well-draining soil. A sandy or loamy soil mix works well, as it allows excess water to drain away easily. Adding organic matter like compost can improve soil fertility and structure, providing the plant with the nutrients it needs. Avoid heavy clay soils that retain too much moisture, as this can lead to root problems.",
+            "common_uses": "Common uses for this plant include ornamental gardening and traditional medicine. Its attractive flowers make it a popular choice for garden borders, rock gardens, and containers. In some traditional practices, it is used to treat various ailments, although scientific evidence supporting these uses is limited. Additionally, it can be used in floral arrangements due to its long-lasting blooms. Its versatility makes it a valuable addition to both gardens and homes.",
+            "cultural_significance": "This plant has cultural significance in some regions. It is often used in traditional medicine for its purported healing properties. In some cultures, it is also associated with certain rituals or beliefs. Its vibrant flowers and hardy nature make it a popular choice for gardens and landscapes, symbolizing resilience and beauty. Understanding its cultural background can enhance appreciation for this versatile plant.",
+            "toxicity": "This plant is toxic to both humans and animals. Ingesting any part of it can cause symptoms like nausea, vomiting, and diarrhea. In severe cases, it can lead to more serious health issues. It's important to keep it out of reach of children and pets. If you suspect ingestion, seek medical attention immediately. Always handle the plant with care, and consider wearing gloves when pruning or handling it.",
+            "best_watering": "Watering this plant properly is crucial for its health. It prefers consistently moist soil but doesn't like to sit in water. Overwatering can lead to root rot, so it's important to let the top inch of soil dry out between waterings. During the growing season, water it more frequently, but reduce the amount in the winter when the plant is not actively growing. Using a well-draining pot or soil mix can help prevent water from accumulating at the roots.",
+            "language": "en",
+            "entity_id": "1160bd8ec6097b56"
+          }
+        },
+        {
+          "id": "3a7ce67f35484ed7",
+          "name": "Chrysanthemum",
+          "probability": 0.0208,
+          "similar_images": [
+            {
+              "id": "94e6135718f01117025db26afe5d249c82742eb0",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/94e/6135718f01117025db26afe5d249c82742eb0.jpg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Oleg Kosterin",
+              "similarity": 0.58,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/94e/6135718f01117025db26afe5d249c82742eb0.small.jpg"
+            },
+            {
+              "id": "a4665f481480c210c49ed7107fe8935b34545759",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/a46/65f481480c210c49ed7107fe8935b34545759.jpeg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.516,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/a46/65f481480c210c49ed7107fe8935b34545759.small.jpeg"
+            }
+          ],
+          "details": {
+            "common_names": [
+              "daisy",
+              "chrysanthemums",
+              "mums"
+            ],
+            "taxonomy": {
+              "class": "Magnoliopsida",
+              "genus": "Chrysanthemum",
+              "order": "Asterales",
+              "family": "Asteraceae",
+              "phylum": "Tracheophyta",
+              "kingdom": "Plantae"
+            },
+            "url": "https://en.wikipedia.org/wiki/Chrysanthemum",
+            "gbif_id": 3150746,
+            "inaturalist_id": 53808,
+            "rank": "genus",
+            "description": {
+              "value": "Chrysanthemums (), sometimes called mums or chrysanths, are flowering plants of the genus Chrysanthemum in the family Asteraceae. They are native to East Asia and northeastern Europe. Most species originate from East Asia and the center of diversity is in China. Countless horticultural varieties and cultivars exist.",
+              "citation": "https://en.wikipedia.org/wiki/Chrysanthemum",
+              "license_name": "CC BY-SA 3.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "synonyms": [
+              "Arctanthemum",
+              "Chrisanthemum",
+              "Dendranthema",
+              "Hulteniella",
+              "Leucanthemum"
+            ],
+            "image": {
+              "value": "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/fc0/fc0b6a5b17041797f109c680646e56f4e1bd7d75.jpg",
+              "citation": "https://en.wikipedia.org/wiki/User:Muhammad_Mahdi_Karim",
+              "license_name": "GFDL 1.2",
+              "license_url": "https://www.gnu.org/licenses/old-licenses/fdl-1.2.html"
+            },
+            "edible_parts": [
+              "flowers",
+              "leaves",
+              "oil",
+              "seeds"
+            ],
+            "watering": {
+              "max": 2,
+              "min": 2
+            },
+            "best_light_condition": "This plant thrives in full sun, requiring at least six hours of direct sunlight each day. While it can tolerate partial shade, too little light can result in leggy growth and fewer blooms. A sunny spot in the garden or a bright windowsill indoors is ideal. If grown indoors, rotating the plant occasionally ensures even light exposure and balanced growth.",
+            "best_soil_type": "Well-draining soil is crucial for healthy growth. A mix of garden soil, compost, and sand or perlite works well. The soil should be rich in organic matter to provide essential nutrients. Avoid heavy clay soils that retain too much water, as this can lead to root rot. Regularly amending the soil with compost or well-rotted manure can improve its structure and fertility.",
+            "common_uses": "This plant is widely used for ornamental purposes, both in gardens and as cut flowers. Its vibrant blooms add color to landscapes and floral arrangements. Additionally, it is used in traditional medicine in some cultures for its purported health benefits. The flowers can also be dried and used in teas, which are believed to have various therapeutic properties.",
+            "cultural_significance": "In many cultures, this plant holds significant meaning. In some Asian countries, it symbolizes longevity and rejuvenation, often used in festivals and traditional medicine. In Europe, it is commonly associated with remembrance and is used in funeral arrangements. The plant's cultural significance varies widely, reflecting different traditions and beliefs around the world.",
+            "toxicity": "This plant can be toxic to both humans and animals if ingested. It contains compounds that can cause skin irritation, gastrointestinal upset, and other symptoms. Pets, particularly cats and dogs, may experience drooling, vomiting, and diarrhea if they chew on the plant. It's important to keep it out of reach of children and pets to prevent accidental ingestion.",
+            "best_watering": "Watering should be done consistently but not excessively. The soil should be kept moist, but not waterlogged. It's best to water at the base of the plant to avoid wetting the foliage, which can lead to disease. Early morning watering is ideal, allowing the plant to absorb moisture before the heat of the day. During hot, dry periods, more frequent watering may be necessary, but always check the soil moisture first.",
+            "language": "en",
+            "entity_id": "3a7ce67f35484ed7"
+          }
+        }
+      ]
+    },
+    "disease": {
+      "suggestions": [
+        {
+          "id": "d24ebab7c0155e4b",
+          "name": "Animalia",
+          "probability": 0.99,
+          "similar_images": [
+            {
+              "id": "d0f85dc17cd2f4fffc21ee6e504b5748cbc0f076",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/d0f/85dc17cd2f4fffc21ee6e504b5748cbc0f076.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.249,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/d0f/85dc17cd2f4fffc21ee6e504b5748cbc0f076.small.jpg"
+            },
+            {
+              "id": "e3094413684a1f10e1946fdd5a8613ad993c8063",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/e30/94413684a1f10e1946fdd5a8613ad993c8063.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.248,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/e30/94413684a1f10e1946fdd5a8613ad993c8063.small.jpg"
+            }
+          ],
+          "redundant": true,
+          "details": {
+            "description": "Disorders induced by organisms from the animal kingdom. These pests cause direct damage by feeding on leaves, stems, roots, and other parts of the plant or by inhabiting plant tissues. Pests can also spread bacterial and viral diseases.",
+            "url": "https://en.wikipedia.org/wiki/Animal",
+            "common_names": [
+              "pests"
+            ],
+            "language": "en",
+            "entity_id": "d24ebab7c0155e4b"
+          }
+        },
+        {
+          "id": "76e471140b1b55e2",
+          "name": "Insecta",
+          "probability": 0.99,
+          "similar_images": [
+            {
+              "id": "8a3ccd568661ece1a9459b7f5a2511f20e46027a",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/8a3/ccd568661ece1a9459b7f5a2511f20e46027a.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.248,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/8a3/ccd568661ece1a9459b7f5a2511f20e46027a.small.jpg"
+            },
+            {
+              "id": "3afc8abef3f2c4796443ad3c0d9b4bdcf14b8957",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/3af/c8abef3f2c4796443ad3c0d9b4bdcf14b8957.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.239,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/3af/c8abef3f2c4796443ad3c0d9b4bdcf14b8957.small.jpg"
+            }
+          ],
+          "details": {
+            "description": "Class Insecta contains many major plant pests such as aphids and thrips. Damage can be caused by both larval and adult stages. They can cause feeding damage or transmit a bacterial, viral, or fungal infection.",
+            "url": "https://en.wikipedia.org/wiki/Insect",
+            "common_names": [
+              "insects"
+            ],
+            "language": "en",
+            "entity_id": "76e471140b1b55e2"
+          }
+        },
+        {
+          "id": "bf75abeaaafd6c6f",
+          "name": "feeding damage by insects",
+          "probability": 0.2824,
+          "similar_images": [
+            {
+              "id": "26714b7af74aa5ff3a2ebb9d6e943104b52b0556",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/267/14b7af74aa5ff3a2ebb9d6e943104b52b0556.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.271,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/267/14b7af74aa5ff3a2ebb9d6e943104b52b0556.small.jpg"
+            },
+            {
+              "id": "9833ed83050ee7cf7d9ea3700bacd1dafbee6827",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/983/3ed83050ee7cf7d9ea3700bacd1dafbee6827.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.254,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/983/3ed83050ee7cf7d9ea3700bacd1dafbee6827.small.jpg"
+            }
+          ],
+          "details": {
+            "description": "Feeding damage by insects includes holes or notches in leaves, removal of the tissue between leaf veins, tunnels in the plant tissue, root consumption, and others.",
+            "url": "https://gardeningsolutions.ifas.ufl.edu/care/pests-and-diseases/pests/management/different-pests-different-damage.html",
+            "common_names": null,
+            "language": "en",
+            "entity_id": "bf75abeaaafd6c6f"
+          }
+        },
+        {
+          "id": "98fc3d10c2d369c7",
+          "name": "leaf miners",
+          "probability": 0.047,
+          "similar_images": [
+            {
+              "id": "3e4d5724e0ee04107b2cc89ce681fc0f5482a29f",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/3e4/d5724e0ee04107b2cc89ce681fc0f5482a29f.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.225,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/3e4/d5724e0ee04107b2cc89ce681fc0f5482a29f.small.jpg"
+            },
+            {
+              "id": "ab2edbb5740a155d3bc04b958b55a9396d980aa3",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/ab2/edbb5740a155d3bc04b958b55a9396d980aa3.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.224,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/ab2/edbb5740a155d3bc04b958b55a9396d980aa3.small.jpg"
+            }
+          ],
+          "details": {
+            "description": "Larval stages of leaf-mining insects are feeding on the leaf tissue of plants, building little tunnels under the leaf surface.",
+            "url": "https://en.wikipedia.org/wiki/Leaf_miner",
+            "common_names": [
+              "leaf-mining insects"
+            ],
+            "language": "en",
+            "entity_id": "98fc3d10c2d369c7"
+          }
+        }
+      ],
+      "question": null
+    },
+    "is_plant": {
+      "probability": 0.80672354,
+      "threshold": 0.5,
+      "binary": true
+    },
+    "is_healthy": {
+      "binary": false,
+      "threshold": 0.525,
+      "probability": 0.2420053482055664
+    }
+  },
+  "status": "COMPLETED",
+  "sla_compliant_client": true,
+  "sla_compliant_system": true,
+  "created": 1743402170.617139,
+  "completed": 1743402170.985512
+}

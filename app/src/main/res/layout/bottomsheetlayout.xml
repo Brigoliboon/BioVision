@@ -72,6 +72,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/textColorSecondary"
         android:text="@string/lorem_ipsum"
+        android:lines="3"
         android:fadingEdge="horizontal"/>
 
     <LinearLayout
