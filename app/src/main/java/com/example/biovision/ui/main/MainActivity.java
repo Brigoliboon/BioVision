@@ -20,6 +20,7 @@ import com.example.biovision.data.API.Connection.ConnectionStatus;
 import com.example.biovision.data.API.Connection.Connection;
 import com.example.biovision.data.API.Connection.exception.NetworkErrorException;
 import com.example.biovision.R;
+import com.example.biovision.ui.camera.CameraActivity;
 import com.example.biovision.ui.login.LoginActivity;
 
 import java.net.SocketTimeoutException;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 if (finalStatus == ConnectionStatus.AUTHENTICATED) {
                     Toast.makeText(MainActivity.this,"Connection Established", Toast.LENGTH_SHORT).show();
                     handler.postDelayed(() -> {
-                        Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                        Intent i = new Intent(MainActivity.this, CameraActivity.class);
                         startActivity(i);
                         finish();
                     }, 3000);

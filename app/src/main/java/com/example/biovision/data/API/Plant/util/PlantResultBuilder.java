@@ -34,13 +34,21 @@ public class PlantResultBuilder {
 
         data.get("edible_parts");
 
+        String desc;
+        try {
+            desc = data.getJSONObject("description").getString("value");
+
+        } catch (JSONException e) {
+            desc = "";
+        }
         return new Detail(
-                data.getJSONArray("common_names"),
+                data.get("common_names"),
                 taxonomyBuilder(data.getJSONObject("taxonomy")),
                 data.getString("url"),
                 data.getDouble("gbif_id"),
                 data.getDouble("inaturalist_id"),
                 data.getString("rank"),
+                desc,
                 data.get("edible_parts"),
                 data.get("watering"),
                 data.getString("best_light_condition"),

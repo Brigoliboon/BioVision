@@ -43,6 +43,6 @@ public class SampleResponseUnitTest {
 
         JSONObject json = new JSONObject(data);
         PlantResult result = PlantResultBuilder.plantResultBuilder(json);
-        System.out.println(result.plantArray().get(0).detail());
+        System.out.println(result);
     }
 }

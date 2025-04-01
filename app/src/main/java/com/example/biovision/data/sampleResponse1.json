@@ -1,0 +1,429 @@
+{
+  "access_token": "fIQIqiX6T6ZlXbj",
+  "model_version": "plant_id:5.0.0",
+  "custom_id": null,
+  "input": {
+    "latitude": 8.4770816,
+    "longitude": 124.6461952,
+    "similar_images": true,
+    "health": "all",
+    "images": [
+      "https://plant.id/media/imgs/1af93907652d487ebccc454250ff31dd.jpg"
+    ],
+    "datetime": "2025-03-31"
+  },
+  "result": {
+    "disease": {
+      "suggestions": [
+        {
+          "id": "5b5b0081922d3c45",
+          "name": "finished flowering period",
+          "probability": 0.0367,
+          "similar_images": [
+            {
+              "id": "93bfe22329c5084203e65364afc7361df430c46e",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/93b/fe22329c5084203e65364afc7361df430c46e.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.277,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/93b/fe22329c5084203e65364afc7361df430c46e.small.jpg"
+            },
+            {
+              "id": "2c1636d5a957d9b033288445c26824013ab28308",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/2c1/636d5a957d9b033288445c26824013ab28308.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.275,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/2c1/636d5a957d9b033288445c26824013ab28308.small.jpg"
+            }
+          ],
+          "details": {
+            "description": "The finished flowering period is part of the physiological process when the flowers die at the end of the flowering period. If fertilized, flowers develop into fruits.",
+            "url": null,
+            "common_names": null,
+            "language": "en",
+            "entity_id": "5b5b0081922d3c45"
+          }
+        },
+        {
+          "id": "d24ebab7c0155e4b",
+          "name": "Animalia",
+          "probability": 0.026,
+          "similar_images": [
+            {
+              "id": "ec2ab66e8cea2401936a1087ea56d88a7da31ff9",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/ec2/ab66e8cea2401936a1087ea56d88a7da31ff9.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.25,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/ec2/ab66e8cea2401936a1087ea56d88a7da31ff9.small.jpg"
+            },
+            {
+              "id": "e05e203324dc5c5489d9645a16bf72e81873dac3",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/e05/e203324dc5c5489d9645a16bf72e81873dac3.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.238,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/e05/e203324dc5c5489d9645a16bf72e81873dac3.small.jpg"
+            }
+          ],
+          "redundant": true,
+          "details": {
+            "description": "Disorders induced by organisms from the animal kingdom. These pests cause direct damage by feeding on leaves, stems, roots, and other parts of the plant or by inhabiting plant tissues. Pests can also spread bacterial and viral diseases.",
+            "url": "https://en.wikipedia.org/wiki/Animal",
+            "common_names": [
+              "pests"
+            ],
+            "language": "en",
+            "entity_id": "d24ebab7c0155e4b"
+          }
+        },
+        {
+          "id": "af7b78782de52bd8",
+          "name": "senescence",
+          "probability": 0.0242,
+          "similar_images": [
+            {
+              "id": "ca61625d1b096bd86f63e05352c127a6ff524735",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/ca6/1625d1b096bd86f63e05352c127a6ff524735.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.305,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/ca6/1625d1b096bd86f63e05352c127a6ff524735.small.jpg"
+            },
+            {
+              "id": "4e39ffb91000c235f521ad8916979e9601f69c4f",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/4e3/9ffb91000c235f521ad8916979e9601f69c4f.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.284,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/4e3/9ffb91000c235f521ad8916979e9601f69c4f.small.jpg"
+            }
+          ],
+          "details": {
+            "description": "Senescence is a process of aging that can occur due to physiological aging or environmental stress.",
+            "url": "https://en.wikipedia.org/wiki/Plant_senescence",
+            "common_names": [
+              "aging"
+            ],
+            "language": "en",
+            "entity_id": "af7b78782de52bd8"
+          }
+        },
+        {
+          "id": "76e471140b1b55e2",
+          "name": "Insecta",
+          "probability": 0.0191,
+          "similar_images": [
+            {
+              "id": "696ab949d58baad40685d9bdf22f0c5eb444eaca",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/696/ab949d58baad40685d9bdf22f0c5eb444eaca.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.242,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/696/ab949d58baad40685d9bdf22f0c5eb444eaca.small.jpg"
+            },
+            {
+              "id": "3afc8abef3f2c4796443ad3c0d9b4bdcf14b8957",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/3af/c8abef3f2c4796443ad3c0d9b4bdcf14b8957.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.231,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/3af/c8abef3f2c4796443ad3c0d9b4bdcf14b8957.small.jpg"
+            }
+          ],
+          "redundant": true,
+          "details": {
+            "description": "Class Insecta contains many major plant pests such as aphids and thrips. Damage can be caused by both larval and adult stages. They can cause feeding damage or transmit a bacterial, viral, or fungal infection.",
+            "url": "https://en.wikipedia.org/wiki/Insect",
+            "common_names": [
+              "insects"
+            ],
+            "language": "en",
+            "entity_id": "76e471140b1b55e2"
+          }
+        },
+        {
+          "id": "bf75abeaaafd6c6f",
+          "name": "feeding damage by insects",
+          "probability": 0.0118,
+          "similar_images": [
+            {
+              "id": "26714b7af74aa5ff3a2ebb9d6e943104b52b0556",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/267/14b7af74aa5ff3a2ebb9d6e943104b52b0556.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.259,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/267/14b7af74aa5ff3a2ebb9d6e943104b52b0556.small.jpg"
+            },
+            {
+              "id": "6b0f7e3b7ba1e23fcdcedcc3924928de74c90455",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/6b0/f7e3b7ba1e23fcdcedcc3924928de74c90455.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.242,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/6b0/f7e3b7ba1e23fcdcedcc3924928de74c90455.small.jpg"
+            }
+          ],
+          "details": {
+            "description": "Feeding damage by insects includes holes or notches in leaves, removal of the tissue between leaf veins, tunnels in the plant tissue, root consumption, and others.",
+            "url": "https://gardeningsolutions.ifas.ufl.edu/care/pests-and-diseases/pests/management/different-pests-different-damage.html",
+            "common_names": null,
+            "language": "en",
+            "entity_id": "bf75abeaaafd6c6f"
+          }
+        },
+        {
+          "id": "765b06482c4e4ae9",
+          "name": "nutrient deficiency",
+          "probability": 0.0105,
+          "similar_images": [
+            {
+              "id": "932fe14d42518fa6b63a40848c107ef057286c3e",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/932/fe14d42518fa6b63a40848c107ef057286c3e.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.268,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/932/fe14d42518fa6b63a40848c107ef057286c3e.small.jpg"
+            },
+            {
+              "id": "a632404b9a396b090e9c7e89879f10c4058218ab",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/a63/2404b9a396b090e9c7e89879f10c4058218ab.jpg",
+              "license_name": "CC BY-NC-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+              "citation": "FlowerChecker s.r.o.",
+              "similarity": 0.261,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/a63/2404b9a396b090e9c7e89879f10c4058218ab.small.jpg"
+            }
+          ],
+          "details": {
+            "description": "Nutrient deficiency is caused by a lack of macronutrients or micronutrients essential for the plant. This can be caused by insufficient amounts of nutrients in the soil or unsuitable conditions for nutrients uptake.",
+            "url": "https://www.missouribotanicalgarden.org/gardens-gardening/your-garden/help-for-the-home-gardener/advice-tips-resources/pests-and-problems/environmental/nutrients.aspx",
+            "common_names": null,
+            "language": "en",
+            "entity_id": "765b06482c4e4ae9"
+          }
+        }
+      ],
+      "question": null
+    },
+    "is_healthy": {
+      "binary": true,
+      "threshold": 0.525,
+      "probability": 0.982770623639226
+    },
+    "is_plant": {
+      "probability": 0.78165096,
+      "threshold": 0.5,
+      "binary": true
+    },
+    "classification": {
+      "suggestions": [
+        {
+          "id": "d2ca82a5cc3568b7",
+          "name": "Cosmos bipinnatus",
+          "probability": 0.6533,
+          "similar_images": [
+            {
+              "id": "f8de0d7265511f47b66375af0bdd56fb55b9544f",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/f8d/e0d7265511f47b66375af0bdd56fb55b9544f.jpeg",
+              "license_name": "CC BY-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "citation": "Stéphane MICHEL",
+              "similarity": 0.65,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/f8d/e0d7265511f47b66375af0bdd56fb55b9544f.small.jpeg"
+            },
+            {
+              "id": "045ce8e7e13a5e41b0820140bd5cac1c336ff844",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/045/ce8e7e13a5e41b0820140bd5cac1c336ff844.jpeg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Arij Sultan",
+              "similarity": 0.571,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/045/ce8e7e13a5e41b0820140bd5cac1c336ff844.small.jpeg"
+            }
+          ],
+          "details": {
+            "common_names": [
+              "garden cosmos",
+              "Mexican aster",
+              "annual cosmos",
+              "Cosmos"
+            ],
+            "taxonomy": {
+              "class": "Magnoliopsida",
+              "genus": "Cosmos",
+              "order": "Asterales",
+              "family": "Asteraceae",
+              "phylum": "Tracheophyta",
+              "kingdom": "Plantae"
+            },
+            "url": "https://en.wikipedia.org/wiki/Cosmos_bipinnatus",
+            "gbif_id": 3098912,
+            "inaturalist_id": 68562,
+            "rank": "species",
+            "description": {
+              "value": "Cosmos bipinnatus, commonly called the garden cosmos or Mexican aster, is a medium-sized flowering herbaceous plant in the daisy family Asteraceae, native to the Americas. The species and its varieties and cultivars are popular as ornamental plants in temperate climate gardens.",
+              "citation": "https://en.wikipedia.org/wiki/Cosmos_bipinnatus",
+              "license_name": "CC BY-SA 3.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "synonyms": [
+              "Bidens bipinnata",
+              "Bidens formosa",
+              "Bidens lindleyi",
+              "Bidens reptans",
+              "Coreopsis formosa",
+              "Cosmea bipinnata",
+              "Cosmea tenifolia",
+              "Cosmea tenuifolia",
+              "Cosmos bipinnatus subsp. albiflorus",
+              "Cosmos bipinnatus subsp. bipinnatus",
+              "Cosmos bipinnatus subsp. exaristatus",
+              "Cosmos bipinnatus subsp. typicus",
+              "Cosmos bipinnatus var. albiflorus",
+              "Cosmos bipinnatus var. bipinnatus",
+              "Cosmos bipinnatus var. exaristatus",
+              "Cosmos bipinnatus var. typicus",
+              "Cosmos formosa",
+              "Cosmos hybridus",
+              "Cosmos spectabilis",
+              "Cosmos spectabilis nothovar. spectabilis",
+              "Cosmos tenuifolius",
+              "Cosmos ×spectabilis subsp. alba",
+              "Cosmos ×spectabilis subsp. rosea",
+              "Cosmos ×spectabilis var. alba",
+              "Cosmos ×spectabilis var. rosea",
+              "Dahlia repens",
+              "Dahlia zimapani",
+              "Galatella hauptii subsp. tenuifolia",
+              "Galatella tenuifolia",
+              "Georgia bipinnata",
+              "Georgina bipinnata"
+            ],
+            "image": {
+              "value": "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/12d/12d9d5fddc27d40393bbd688d749ad7d01ccce8a.jpg",
+              "citation": "//commons.wikimedia.org/wiki/User:Hugo.arg",
+              "license_name": "CC BY-SA 3.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "edible_parts": null,
+            "watering": {
+              "max": 2,
+              "min": 2
+            },
+            "best_light_condition": "This plant thrives in full sun, needing at least six hours of direct sunlight each day. It can tolerate partial shade, but too much shade can result in fewer blooms and leggy growth. If you're growing it indoors, place it near a south-facing window where it can get plenty of light. In areas with extremely hot climates, some afternoon shade can help protect it from scorching.",
+            "best_soil_type": "For optimal growth, this plant prefers well-draining soil. Sandy or loamy soils are ideal, as they prevent water from pooling around the roots. It can tolerate poor soil conditions but will perform best in soil that is rich in organic matter. Adding compost or aged manure to the planting area can improve soil fertility and structure, promoting healthier growth and more vibrant blooms.",
+            "common_uses": "Commonly, this plant is used for ornamental purposes in gardens and landscapes. Its vibrant flowers make it a popular choice for borders, flower beds, and containers. It also attracts pollinators like bees and butterflies, making it beneficial for the ecosystem. Additionally, the flowers can be cut and used in floral arrangements, adding a splash of color to indoor spaces. Some people also use it in companion planting to repel pests and improve the growth of neighboring plants.",
+            "cultural_significance": "This plant holds cultural significance in various parts of the world. In Mexico, it is often associated with the Day of the Dead celebrations, where it is used to decorate altars and graves. Its bright, cheerful flowers symbolize peace and love, making it a popular choice for gardens and floral arrangements. In some cultures, it is also seen as a symbol of order and harmony due to its symmetrical, daisy-like blooms.",
+            "toxicity": "This plant is generally considered non-toxic to both humans and animals. It doesn't contain any harmful chemicals that would pose a risk if ingested. However, it's always a good idea to supervise pets and children around plants to prevent any accidental ingestion. While it's safe, it's not particularly palatable, so it's unlikely to be eaten in large quantities.",
+            "best_watering": "Watering this plant properly is crucial for its health. It prefers consistent moisture but doesn't like to sit in waterlogged soil. Water it thoroughly when the top inch of soil feels dry to the touch. During hot, dry periods, you might need to water it more frequently. However, be careful not to overwater, as this can lead to root rot. Mulching around the base can help retain soil moisture and reduce the need for frequent watering.",
+            "language": "en",
+            "entity_id": "d2ca82a5cc3568b7"
+          }
+        },
+        {
+          "id": "53fa516267cbdd03",
+          "name": "Cosmos caudatus",
+          "probability": 0.3237,
+          "similar_images": [
+            {
+              "id": "f622af2493d8c1cf83bac862f425a882aecd159d",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/f62/2af2493d8c1cf83bac862f425a882aecd159d.jpeg",
+              "license_name": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "citation": "Umma Hauna",
+              "similarity": 0.569,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/f62/2af2493d8c1cf83bac862f425a882aecd159d.small.jpeg"
+            },
+            {
+              "id": "3bca782673192f6e5bca6351e57ad46f255be6dc",
+              "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/3bc/a782673192f6e5bca6351e57ad46f255be6dc.jpeg",
+              "license_name": "CC BY-SA 4.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+              "citation": "Muhammad Falah",
+              "similarity": 0.567,
+              "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/5/3bc/a782673192f6e5bca6351e57ad46f255be6dc.small.jpeg"
+            }
+          ],
+          "details": {
+            "common_names": [
+              "wild cosmos",
+              "king's salad"
+            ],
+            "taxonomy": {
+              "class": "Magnoliopsida",
+              "genus": "Cosmos",
+              "order": "Asterales",
+              "family": "Asteraceae",
+              "phylum": "Tracheophyta",
+              "kingdom": "Plantae"
+            },
+            "url": "https://en.wikipedia.org/wiki/Cosmos_caudatus",
+            "gbif_id": 3098932,
+            "inaturalist_id": 160941,
+            "rank": "species",
+            "description": {
+              "value": "Cosmos caudatus or king's salad is an annual plant in the genus Cosmos, bearing purple, pink, or white ray florets. It is native to Latin America (from Rio Grande do Sul in southern Brazil to Tamaulipas in northeastern Mexico), and the West Indies, though naturalized in tropical parts of Asia, Africa, and Australia.",
+              "citation": "https://en.wikipedia.org/wiki/Cosmos_caudatus",
+              "license_name": "CC BY-SA 3.0",
+              "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "synonyms": [
+              "Bidens artemisiaefolia subsp. caudata",
+              "Bidens artemisiaefolia var. caudatus",
+              "Bidens artemisiifolia subsp. caudata",
+              "Bidens artemisiifolia subsp. ruber",
+              "Bidens artemisiifolia var. caudata",
+              "Bidens artemisiifolia var. intermedia",
+              "Bidens artemisiifolia var. rubra",
+              "Bidens berteriana",
+              "Bidens berteroana",
+              "Bidens carnea",
+              "Bidens caudata",
+              "Bidens caudatus",
+              "Coreopsis coronata",
+              "Coreopsis gracilis",
+              "Cosmea caudata",
+              "Cosmos caudatus var. caudatus",
+              "Cosmos pacificus var. chiapensis",
+              "Cosmus caudatus"
+            ],
+            "image": {
+              "value": "https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/b5f/b5f34e463b385cb0a0b5f8625a1870c4d50d4b21.jpg",
+              "citation": null,
+              "license_name": "CC0",
+              "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+            },
+            "edible_parts": null,
+            "watering": null,
+            "best_light_condition": "This plant thrives in full sunlight but can tolerate partial shade. Ideally, it should receive at least 6 hours of direct sunlight each day. If grown indoors, place it near a south-facing window where it can get ample light. In areas with intense afternoon sun, some light shade can help prevent the leaves from scorching. Adequate light is crucial for the plant to produce vibrant flowers and maintain healthy growth.",
+            "best_soil_type": "The plant prefers well-draining soil that is rich in organic matter. A mix of garden soil, compost, and sand works well to ensure proper drainage and nutrient availability. The soil pH should be slightly acidic to neutral, ranging from 6.0 to 7.0. Regularly adding compost or organic fertilizers can help maintain soil fertility and promote robust growth.",
+            "common_uses": "This plant is commonly used for both ornamental and culinary purposes. Its attractive flowers make it a popular choice for gardens and landscaping. Additionally, the leaves and stems are edible and can be used in salads, soups, and other dishes. The plant is also valued for its potential medicinal properties and is used in herbal remedies to treat various ailments.",
+            "cultural_significance": "In various cultures, this plant holds significant value. It is often used in traditional medicine and is believed to have health benefits such as improving digestion and reducing inflammation. In some regions, it is also associated with cultural rituals and is used in ceremonies and festivals. Its vibrant flowers are often seen as symbols of beauty and vitality.",
+            "toxicity": "This plant is generally considered non-toxic to both humans and animals. It does not contain any harmful chemicals that could cause poisoning if ingested. However, it's always a good practice to monitor pets and children to ensure they do not consume large quantities of any plant material. If any adverse reactions occur, consult a medical professional or veterinarian.",
+            "best_watering": "For optimal growth, water the plant regularly but avoid overwatering. The soil should be kept consistently moist, but not waterlogged. It's best to water the plant early in the morning or late in the afternoon to prevent water from evaporating too quickly. During the rainy season, reduce the frequency of watering to prevent root rot. Always check the top inch of soil; if it feels dry, it's time to water.",
+            "language": "en",
+            "entity_id": "53fa516267cbdd03"
+          }
+        }
+      ]
+    }
+  },
+  "status": "COMPLETED",
+  "sla_compliant_client": true,
+  "sla_compliant_system": true,
+  "created": 1743397327.832,
+  "completed": 1743397328.236688
+}

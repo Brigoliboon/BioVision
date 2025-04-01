@@ -45,6 +45,8 @@ dependencies {
     implementation ("androidx.camera:camera-lifecycle:1.4.1")
     implementation ("androidx.camera:camera-view:1.4.1")
 
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

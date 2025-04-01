@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -38,13 +39,19 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.biovision.data.API.Plant.PlantRequest;
+import com.example.biovision.data.API.Plant.model.Plant;
+import com.example.biovision.data.API.Plant.model.PlantResult;
 import com.example.biovision.data.API.Plant.util.PayloadGenerator;
 import com.example.biovision.Camera.util.ImageProcess;
 import com.example.biovision.R;
+import com.example.biovision.data.API.Plant.util.PlantResultBuilder;
+import com.example.biovision.data.API.Request.util.JSONParser;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.text.BreakIterator;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
@@ -53,6 +60,7 @@ import java.util.concurrent.Executors;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -207,22 +215,24 @@ public class CameraActivity extends AppCompatActivity {
             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                 String b64Image = ImageProcess.compressAndEncodeImage(file.getPath());
                 JSONObject payload = null;
+                PlantResult plantResult;
                 try {
                     payload = PayloadGenerator.generatePayload(b64Image);
+                    ResponseBody result = plantAPI.plantScan(payload);
+                    plantResult = PlantResultBuilder.plantResultBuilder(JSONParser.parsetoJSON(result));
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
-
-                ResponseBody result = plantAPI.plantScan(payload);
 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         {
-//                            displayScannedData("", result.toString(), "sample", "", "yes yes");
                             try {
-                                showDialog(result);
-                            } catch (IOException e) {
+                                showDialog(plantResult);
+                            } catch (IOException | JSONException e) {
                                 throw new RuntimeException(e);
                             }
                             capture.setEnabled(true);
@@ -230,7 +240,7 @@ public class CameraActivity extends AppCompatActivity {
                     }
                 });
                 // To avoid spamming, disable the button during the saving process
-                if (!capture.isEnabled()){
+                if (!capture.isEnabled()) {
                     capture.setEnabled(true);
                     startCamera(cameraFacing);
                 }
@@ -249,7 +259,7 @@ public class CameraActivity extends AppCompatActivity {
         });
     }
 
-    public void showDialog(ResponseBody content) throws IOException {
+    public void showDialog(PlantResult result) throws IOException, JSONException {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -259,7 +269,20 @@ public class CameraActivity extends AppCompatActivity {
 
         // Declare and set values on inside elements
         short_desc = sheetView.findViewById(R.id.short_desc);
-        short_desc.setText(content.string());
+        target_profile = sheetView.findViewById(R.id.target_profile);
+        target_title = sheetView.findViewById(R.id.target_title);
+        match_percent = sheetView.findViewById(R.id.match_percent);
+        sample_img = sheetView.findViewById(R.id.sample_img);
+
+        Plant closestMatch = result.getClosestMatch();
+        short_desc.setText(closestMatch.detail().description());
+
+        Picasso.get().load(closestMatch.similarImages().get(0).imgSmallLink())
+                .into(target_profile);
+        Picasso.get().load(closestMatch.similarImages().get(1).url())
+                .into(sample_img);
+        target_title.setText(closestMatch.name());
+        match_percent.setText(Double.toString(closestMatch.probability()));
 
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
