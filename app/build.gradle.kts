@@ -57,6 +57,8 @@ dependencies {
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.play.services.location)
+    implementation(libs.legacy.support.v4)
+    implementation(libs.recyclerview)
 
     testImplementation(libs.junit)
     testImplementation(libs.monitor)

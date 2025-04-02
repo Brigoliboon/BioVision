@@ -22,12 +22,12 @@ public class PlantResultBuilder {
 
     private static Taxonomy taxonomyBuilder(JSONObject data) throws JSONException {
         return new Taxonomy(
-                data.getString("class"),
-                data.getString("genus"),
-                data.getString("order"),
-                data.getString("family"),
-                data.getString("phylum"),
-                data.getString("kingdom")
+                data.getString(Taxonomy.CLASS),
+                data.getString(Taxonomy.GENUS),
+                data.getString(Taxonomy.ORDER),
+                data.getString(Taxonomy.FAMILY),
+                data.getString(Taxonomy.PHYLUM),
+                data.getString(Taxonomy.KINGDOM)
         );
     }
     private static Detail detailBuilder(JSONObject data) throws JSONException {
@@ -42,21 +42,21 @@ public class PlantResultBuilder {
             desc = "";
         }
         return new Detail(
-                data.get("common_names"),
-                taxonomyBuilder(data.getJSONObject("taxonomy")),
-                data.getString("url"),
-                data.getDouble("gbif_id"),
-                data.getDouble("inaturalist_id"),
-                data.getString("rank"),
+                data.get(Detail.COMMON_NAMES),
+                taxonomyBuilder(data.getJSONObject(Detail.TAXONOMY)),
+                data.getString(Detail.URL),
+                data.getDouble(Detail.GBIF_ID),
+                data.getDouble(Detail.INATURALIST_ID),
+                data.getString(Detail.RANK),
                 desc,
-                data.get("edible_parts"),
-                data.get("watering"),
-                data.getString("best_light_condition"),
-                data.getString("best_soil_type"),
-                data.getString("common_uses"),
-                data.getString("cultural_significance"),
-                data.getString("toxicity"),
-                data.getString("best_watering")
+                data.get(Detail.EDIBLE_PARTS),
+                data.get(Detail.WATERING),
+                data.getString(Detail.BEST_LIGHT_CONDITION),
+                data.getString(Detail.BEST_SOIL_TYPE),
+                data.getString(Detail.COMMON_USES),
+                data.getString(Detail.CULTURAL_SIGNIFICANCE),
+                data.getString(Detail.TOXICITY),
+                data.getString(Detail.BEST_WATERING)
         );
     }
 
@@ -65,13 +65,13 @@ public class PlantResultBuilder {
         for (int j = 0; j < data.length(); j++) {
             JSONObject imgData = (JSONObject) data.get(j);
             imgArray.add(new Image(
-                            imgData.getString("id"),
-                            imgData.getString("url"),
-                            imgData.getString("license_name"),
-                            imgData.getString("license_url"),
-                            imgData.getString("citation"),
-                            imgData.getDouble("similarity"),
-                            imgData.getString("url_small")
+                            imgData.getString(Image.ID),
+                            imgData.getString(Image.URL),
+                            imgData.getString(Image.LICENSE_NAME),
+                            imgData.getString(Image.LICENSE_URL),
+                            imgData.getString(Image.CITATION),
+                            imgData.getDouble(Image.SIMILARITY),
+                            imgData.getString(Image.SMALL_IMG_LINK)
                     )
             );
         }
@@ -89,10 +89,10 @@ public class PlantResultBuilder {
             JSONObject temp = (JSONObject) searchResults.get(i);
             JSONArray images = temp.getJSONArray("similar_images");
 
-            Plant plant = new Plant(temp.getString("id"), temp.getString("name"),
-                    temp.getDouble("probability"),
+            Plant plant = new Plant(temp.getString(Plant.ID), temp.getString(Plant.NAME),
+                    temp.getDouble(Plant.PROBABILITY),
                     imageListBuilder(images),
-                    detailBuilder(temp.getJSONObject("details"))
+                    detailBuilder(temp.getJSONObject(Plant.DETAILS))
                 );
             plantArr.add(plant);
         }

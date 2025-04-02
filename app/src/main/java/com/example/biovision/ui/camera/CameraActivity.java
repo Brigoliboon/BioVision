@@ -2,14 +2,9 @@ package com.example.biovision.ui.camera;
 
 import android.app.Dialog;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
@@ -41,17 +36,17 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.biovision.data.API.Plant.PlantRequest;
 import com.example.biovision.data.API.Plant.model.Plant;
 import com.example.biovision.data.API.Plant.model.PlantResult;
-import com.example.biovision.data.API.Plant.util.PayloadGenerator;
 import com.example.biovision.Camera.util.ImageProcess;
 import com.example.biovision.R;
 import com.example.biovision.data.API.Plant.util.PlantResultBuilder;
-import com.example.biovision.data.API.Request.util.JSONParser;
+import com.example.biovision.ui.components.BottomSheetFragment;
 import com.google.common.util.concurrent.ListenableFuture;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.BreakIterator;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
@@ -65,7 +60,6 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import okhttp3.ResponseBody;
 public class CameraActivity extends AppCompatActivity {
     ImageButton capture; // The id element for the capture button
     SearchView search_bar; // The id element for search compat query
@@ -216,10 +210,29 @@ public class CameraActivity extends AppCompatActivity {
                 String b64Image = ImageProcess.compressAndEncodeImage(file.getPath());
                 JSONObject payload = null;
                 PlantResult plantResult;
+
                 try {
-                    payload = PayloadGenerator.generatePayload(b64Image);
-                    ResponseBody result = plantAPI.plantScan(payload);
-                    plantResult = PlantResultBuilder.plantResultBuilder(JSONParser.parsetoJSON(result));
+                    /**
+                     * Disabled for testing purposes
+                     */
+//                    payload = PayloadGenerator.generatePayload(b64Image);
+//                    ResponseBody result = plantAPI.plantScan(payload);
+//                    plantResult = PlantResultBuilder.plantResultBuilder(JSONParser.parsetoJSON(result));
+                    /**
+                     * Preloaded Response result
+                     * after testing, change the minimum sdk to 26
+                     */
+                    InputStream inputStream = getAssets().open("sampleResponse.json");
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                    StringBuilder jsonData = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        jsonData.append(line);
+                    }
+                    reader.close();
+                    inputStream.close();
+                    JSONObject json = new JSONObject(String.valueOf(jsonData));
+                    plantResult = PlantResultBuilder.plantResultBuilder(json);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 } catch (IOException e) {
@@ -266,7 +279,7 @@ public class CameraActivity extends AppCompatActivity {
         // Ensures that the bottom sheet layout ids are accessed
         View sheetView = getLayoutInflater().inflate(R.layout.bottomsheetlayout, null);
         dialog.setContentView(sheetView);
-
+        BottomSheetFragment bottomSheet = new BottomSheetFragment(result);
         // Declare and set values on inside elements
         short_desc = sheetView.findViewById(R.id.short_desc);
         target_profile = sheetView.findViewById(R.id.target_profile);
@@ -282,12 +295,13 @@ public class CameraActivity extends AppCompatActivity {
         Picasso.get().load(closestMatch.similarImages().get(1).url())
                 .into(sample_img);
         target_title.setText(closestMatch.name());
-        match_percent.setText(Double.toString(closestMatch.probability()));
+        match_percent.setText(closestMatch.getMatchPercent());
 
-        dialog.show();
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.getWindow().getAttributes().windowAnimations = R.style.dialogAnimation;
-        dialog.getWindow().setGravity(Gravity.BOTTOM);
+        bottomSheet.show(getSupportFragmentManager(), "BottomSheetFragment");
+//        dialog.show();
+//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        dialog.getWindow().getAttributes().windowAnimations = R.style.dialogAnimation;
+//        dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
 }
