@@ -19,10 +19,13 @@ import okhttp3.ResponseBody;
 
 public class PlantViewModel extends ViewModel {
     private MutableLiveData<JSONObject> rawData = new MutableLiveData<>();
-
     private MutableLiveData<PlantResult> result = new MutableLiveData<>();
-    public LiveData<Plant> getClosestMatchDetail() {
-        return null;
+    private MutableLiveData<Plant> chosenPlant = new MutableLiveData<>();
+    public LiveData<PlantResult> getResult() {
+        return result;
+    }
+    public LiveData<Plant> getChosenPlant(){
+        return chosenPlant;
     }
 
     public void plantScan(JSONObject payload){
@@ -35,6 +38,7 @@ public class PlantViewModel extends ViewModel {
 
             PlantResult plantResponse = PlantResultBuilder.plantResultBuilder(data);
             result.setValue(plantResponse);
+            chosenPlant.setValue(plantResponse.getClosestMatch());
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (JSONException e) {

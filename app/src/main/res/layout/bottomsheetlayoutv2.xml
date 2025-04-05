@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bg"
+    >
+<!--Drag Handle-->
+    <LinearLayout
+        android:layout_width="200px"
+        android:layout_height="10px"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/dialog_bg"
+        android:backgroundTint="@color/black_overlay"
+        ></LinearLayout>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ShapeAppearance.Material3.Corner.Medium">
+        <ImageView
+            android:id="@+id/sample_img"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:src="@drawable/img1"
+            style="@style/CardView"
+            android:scaleType="centerCrop"/>
+    </com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marguerite daisy"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textColor="@color/black"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Argyranthemum frutescens"
+        android:textSize="14sp"
+        android:fontFamily="@font/poppins_italic"
+        android:textColor="@color/textColorSecondary"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Match Percent: 98.45%"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/textColorSecondary"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical"
+        android:background="@drawable/bottomsheet_detail_container">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_semi_bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Argyranthemum frutescens, known as Paris daisy, marguerite or marguerite daisy, is a perennial plant known for its flowers. It is native to the Canary Islands (part of Spain). Hybrids derived from this species (garden marguerites) are widely cultivated as ornamental plants in private gardens and public parks in many countries, and have naturalized in Italy and southern California. There are many cultivars, but the most common has white petals."
+            android:fontFamily="@font/poppins_regular"
+            android:lineSpacingExtra="2dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bottomsheet_detail_container">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health Assessment"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_semi_bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.github.mikephil.charting.charts.PieChart
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"/>
+            <com.github.mikephil.charting.charts.PieChart
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+<!--Button Container-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:outlineAmbientShadowColor="@color/primary"
+            android:text="More Result"
+            android:textColor="@color/white"
+            android:visibility="visible"
+            app:strokeColor="@color/primary"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:text="Show Details"
+            app:strokeColor="@color/primary"
+            android:layout_gravity="end"/>
+    </LinearLayout>
+</LinearLayout>

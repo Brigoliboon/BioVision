@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="surface_color">#ECE6F0</color>
+    <color name="surface_color">#F1F1F1</color>
     <color name="primary">#228B22</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="textColorPrimary">@color/black</color>
-    <color name="textColorSecondary">@color/surface_color</color>
+    <color name="textColorSecondary">#5F5F5F</color>
 
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>

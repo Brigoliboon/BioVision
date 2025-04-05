@@ -5,6 +5,7 @@ import android.util.JsonReader;
 import com.example.biovision.data.API.Plant.model.PlantResult;
 import com.example.biovision.data.API.Plant.util.PlantResultBuilder;
 import com.example.biovision.data.API.Request.util.JSONParser;
+import com.example.biovision.viewmodel.PlantViewModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,11 +39,13 @@ public class SampleResponseUnitTest {
     @Test
     public void testScanPlant() throws JSONException, IOException {
         String data = new String(
-                Files.readAllBytes(Path.of("D:\\Central Mindanao University\\projects\\BioVision\\app\\src\\main\\java\\com\\example\\biovision\\data\\sampleResponse.json"))
+                Files.readAllBytes(Path.of("D:\\Central Mindanao University\\projects\\BioVision\\app\\src\\main\\assets\\sampleResponse.json"))
         );
 
         JSONObject json = new JSONObject(data);
         PlantResult result = PlantResultBuilder.plantResultBuilder(json);
-        System.out.println(result);
+
+        PlantViewModel plantViewModel = new PlantViewModel();
+        System.out.println(plantViewModel.getClosestMatchDetail());
     }
 }

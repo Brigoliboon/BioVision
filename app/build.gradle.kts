@@ -36,16 +36,22 @@ android {
 }
 
 dependencies {
+    // For Firebase SDK
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
     implementation("com.google.firebase:firebase-analytics")
 
-    implementation ("androidx.camera:camera-core:1.4.1")
-    implementation ("androidx.camera:camera-camera2:1.4.1")
-    implementation ("androidx.camera:camera-lifecycle:1.4.1")
-    implementation ("androidx.camera:camera-view:1.4.1")
+    // Camera Library
+    implementation ("androidx.camera:camera-core:1.4.2")
+    implementation ("androidx.camera:camera-camera2:1.4.2")
+    implementation ("androidx.camera:camera-lifecycle:1.4.2")
+    implementation ("androidx.camera:camera-view:1.4.2")
 
+    // For Efficient Image loading
     implementation ("com.squareup.picasso:picasso:2.71828")
+
+    // For chart display Library
+        implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -38,7 +38,9 @@ import com.example.biovision.data.API.Plant.model.Plant;
 import com.example.biovision.data.API.Plant.model.PlantResult;
 import com.example.biovision.Camera.util.ImageProcess;
 import com.example.biovision.R;
+import com.example.biovision.data.API.Plant.util.PayloadGenerator;
 import com.example.biovision.data.API.Plant.util.PlantResultBuilder;
+import com.example.biovision.data.API.Request.util.JSONParser;
 import com.example.biovision.ui.components.BottomSheetFragment;
 import com.google.common.util.concurrent.ListenableFuture;
 
@@ -60,15 +62,14 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import okhttp3.ResponseBody;
+
 public class CameraActivity extends AppCompatActivity {
     ImageButton capture; // The id element for the capture button
     SearchView search_bar; // The id element for search compat query
     private PreviewView previewView; // The id element for the preview surface of camera view
-    ImageView target_profile;
-    TextView target_title;
-    TextView match_percent;
-    ImageView sample_img;
-    TextView short_desc;
+
+    private static final PlantRequest plantAPI = new PlantRequest("qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL");
 
     /*
     * Camera Lens State
@@ -78,8 +79,6 @@ public class CameraActivity extends AppCompatActivity {
     *-1: Camera Facing Unknown
     * */
     int cameraFacing = CameraSelector.LENS_FACING_BACK; // Start the camera on state 1 by default
-    PlantRequest plantAPI = new PlantRequest("qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL");
-
     private FusedLocationProviderClient fusedLocationClient;
     private final ActivityResultLauncher<String> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), new ActivityResultCallback<Boolean>() {
         @Override
@@ -181,6 +180,7 @@ public class CameraActivity extends AppCompatActivity {
                     Toast.makeText(CameraActivity.this,camera.getCameraInfo().getCameraState().getValue().toString(), Toast.LENGTH_SHORT).show();
 
                 }
+
                 capture.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View view) {
@@ -201,7 +201,7 @@ public class CameraActivity extends AppCompatActivity {
     //TODO Organize the folder-file saving structure
     public void takePicture(ImageCapture imageCapture){
         debugger("Taking a Picture");
-//        saves the picture after taking it
+        //saves the picture after taking it
         final File file = new File(getExternalFilesDir(null), System.currentTimeMillis() + ".jpg");
         ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
         imageCapture.takePicture(outputFileOptions, Executors.newCachedThreadPool(), new ImageCapture.OnImageSavedCallback() {
@@ -233,6 +233,7 @@ public class CameraActivity extends AppCompatActivity {
                     inputStream.close();
                     JSONObject json = new JSONObject(String.valueOf(jsonData));
                     plantResult = PlantResultBuilder.plantResultBuilder(json);
+
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 } catch (IOException e) {
@@ -273,35 +274,8 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     public void showDialog(PlantResult result) throws IOException, JSONException {
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        // Ensures that the bottom sheet layout ids are accessed
-        View sheetView = getLayoutInflater().inflate(R.layout.bottomsheetlayout, null);
-        dialog.setContentView(sheetView);
         BottomSheetFragment bottomSheet = new BottomSheetFragment(result);
-        // Declare and set values on inside elements
-        short_desc = sheetView.findViewById(R.id.short_desc);
-        target_profile = sheetView.findViewById(R.id.target_profile);
-        target_title = sheetView.findViewById(R.id.target_title);
-        match_percent = sheetView.findViewById(R.id.match_percent);
-        sample_img = sheetView.findViewById(R.id.sample_img);
-
-        Plant closestMatch = result.getClosestMatch();
-        short_desc.setText(closestMatch.detail().description());
-
-        Picasso.get().load(closestMatch.similarImages().get(0).imgSmallLink())
-                .into(target_profile);
-        Picasso.get().load(closestMatch.similarImages().get(1).url())
-                .into(sample_img);
-        target_title.setText(closestMatch.name());
-        match_percent.setText(closestMatch.getMatchPercent());
 
         bottomSheet.show(getSupportFragmentManager(), "BottomSheetFragment");
-//        dialog.show();
-//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        dialog.getWindow().getAttributes().windowAnimations = R.style.dialogAnimation;
-//        dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
 }

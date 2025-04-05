@@ -16,8 +16,8 @@ import java.util.ArrayList;
 public class PlantResultBuilder {
 
     private static Health healthBuilder(JSONObject data) throws JSONException {
-        return new Health(data.getDouble("threshold"),
-                data.getDouble("probability"));
+        return new Health(data.getDouble(Health.THRESHOLD),
+                data.getDouble(Health.PROBABILITY));
     }
 
     private static Taxonomy taxonomyBuilder(JSONObject data) throws JSONException {
