@@ -1,125 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:id="@+id/design_bottom_sheet"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/dialog_bg"
-    >
-<!--Drag Handle-->
+    android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width="200px"
-        android:layout_height="10px"
-        android:layout_gravity="center"
-        android:layout_marginBottom="5dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/dialog_bg"
-        android:backgroundTint="@color/black_overlay"
-        ></LinearLayout>
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/ShapeAppearance.Material3.Corner.Medium">
-        <ImageView
-            android:id="@+id/sample_img"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:src="@drawable/img1"
-            style="@style/CardView"
-            android:scaleType="centerCrop"/>
-    </com.google.android.material.card.MaterialCardView>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Marguerite daisy"
-        android:textSize="18sp"
-        android:fontFamily="@font/poppins_semi_bold"
-        android:textColor="@color/black"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Argyranthemum frutescens"
-        android:textSize="14sp"
-        android:fontFamily="@font/poppins_italic"
-        android:textColor="@color/textColorSecondary"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Match Percent: 98.45%"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/textColorSecondary"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:orientation="vertical"
-        android:background="@drawable/bottomsheet_detail_container">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:textSize="18sp"
-            android:fontFamily="@font/poppins_semi_bold" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Argyranthemum frutescens, known as Paris daisy, marguerite or marguerite daisy, is a perennial plant known for its flowers. It is native to the Canary Islands (part of Spain). Hybrids derived from this species (garden marguerites) are widely cultivated as ornamental plants in private gardens and public parks in many countries, and have naturalized in Italy and southern California. There are many cultivars, but the most common has white petals."
-            android:fontFamily="@font/poppins_regular"
-            android:lineSpacingExtra="2dp"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/bottomsheet_detail_container">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Health Assessment"
-            android:textSize="18sp"
-            android:fontFamily="@font/poppins_semi_bold"/>
+        >
+        <!--Drag Handle-->
         <LinearLayout
+            android:layout_width="200px"
+            android:layout_height="10px"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/dialog_bg"
+            android:backgroundTint="@color/black_overlay"
+            ></LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ShapeAppearance.Material3.Corner.Medium">
+            <ImageView
+                android:id="@+id/sample_img"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:src="@drawable/img1"
+                style="@style/CardView"
+                android:scaleType="centerCrop"/>
+        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/common_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marguerite"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/scientific_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_italic"
+            android:text="Argyranthemum frutescens"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <com.github.mikephil.charting.charts.PieChart
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"/>
-            <com.github.mikephil.charting.charts.PieChart
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Also known as "
+                android:fontFamily="@font/poppins_regular"/>
+            <TextView
+                android:id="@+id/common_names"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marguerite daisy, Federation daisy"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_regular"/>
         </LinearLayout>
-    </LinearLayout>
-<!--Button Container-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <Button
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        <TextView
+            android:id="@+id/match_percent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:outlineAmbientShadowColor="@color/primary"
-            android:text="More Result"
-            android:textColor="@color/white"
-            android:visibility="visible"
-            app:strokeColor="@color/primary"/>
+            android:text="Match Percent: 98.45%"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/textColorSecondary"/>
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical"
+            android:background="@drawable/bottomsheet_detail_container"
+            android:elevation="2dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Details"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_semi_bold"/>
 
-        <Button
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerCarousel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingStart="10dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="20dp" />
+
+        </LinearLayout>
+
+        <!--Health Assessment-->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:text="Show Details"
-            app:strokeColor="@color/primary"
-            android:layout_gravity="end"/>
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:elevation="2dp"
+            android:background="@drawable/bottomsheet_detail_container">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Health Assessment"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_semi_bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/healthGraph"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:elevation="2dp"
+                        android:outlineSpotShadowColor="@color/black"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="67dp"
+                        android:elevation="2dp"
+                        android:scaleType="fitCenter"
+
+                        android:src="@drawable/nontoxic" />
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/diseaseCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Diagnosis"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                />
+        </LinearLayout>
+
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

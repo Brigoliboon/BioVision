@@ -1,14 +1,9 @@
 package com.example.biovision.data.API.Plant.model;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
-public record Detail(Object commonNames, Taxonomy taxonomy, String wikiURL, double gbifId, double inaturalistId,
-                     String rank,String description, Object edibleParts, Object watering,
-                     String bestLightCondition, String bestSoilType, String CommonUses,
-                     String culturalSignificance, String toxicity, String bestWatering){
+public record PlantDetail(Object commonNames, Taxonomy taxonomy, String wikiURL, double gbifId, double inaturalistId,
+                          String rank, String description, Object edibleParts, Object watering,
+                          String bestLightCondition, String bestSoilType, String CommonUses,
+                          String culturalSignificance, String toxicity, String bestWatering){
     /**
      * JSON Keys
      */

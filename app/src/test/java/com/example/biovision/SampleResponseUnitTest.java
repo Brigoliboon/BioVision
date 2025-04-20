@@ -46,6 +46,6 @@ public class SampleResponseUnitTest {
         PlantResult result = PlantResultBuilder.plantResultBuilder(json);
 
         PlantViewModel plantViewModel = new PlantViewModel();
-        System.out.println(plantViewModel.getClosestMatchDetail());
+        System.out.println(plantViewModel);
     }
 }

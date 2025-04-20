@@ -1,16 +1,12 @@
 package com.example.biovision.ui.camera;
 
-import android.app.Dialog;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.Manifest;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -34,14 +30,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.biovision.data.API.Plant.PlantRequest;
-import com.example.biovision.data.API.Plant.model.Plant;
 import com.example.biovision.data.API.Plant.model.PlantResult;
 import com.example.biovision.Camera.util.ImageProcess;
 import com.example.biovision.R;
-import com.example.biovision.data.API.Plant.util.PayloadGenerator;
 import com.example.biovision.data.API.Plant.util.PlantResultBuilder;
-import com.example.biovision.data.API.Request.util.JSONParser;
-import com.example.biovision.ui.components.BottomSheetFragment;
+import com.example.biovision.ui.components.BottomSheetFragmentv2;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.BufferedReader;
@@ -57,12 +50,9 @@ import java.util.concurrent.Executors;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import okhttp3.ResponseBody;
 
 public class CameraActivity extends AppCompatActivity {
     ImageButton capture; // The id element for the capture button
@@ -274,8 +264,7 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     public void showDialog(PlantResult result) throws IOException, JSONException {
-        BottomSheetFragment bottomSheet = new BottomSheetFragment(result);
-
+        BottomSheetFragmentv2 bottomSheet = new BottomSheetFragmentv2(result);
         bottomSheet.show(getSupportFragmentManager(), "BottomSheetFragment");
     }
 }

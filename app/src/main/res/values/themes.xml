@@ -18,7 +18,8 @@
         <!-- Other theme attributes -->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/surface_color</item>
     </style>
 
     <style name="Theme.BioVision.Fullscreen" parent="Theme.BioVision">

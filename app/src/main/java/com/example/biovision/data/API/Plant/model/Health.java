@@ -20,4 +20,8 @@ public record Health(double threshold, double percentile){
             return HealthStats.CRITICAL;
         }
     }
+
+    public String getPercentage(){
+        return String.format("%.2f", percentile * 100) + "%";
+    }
 }

@@ -1,6 +1,9 @@
 package com.example.biovision.data.API.Plant.util;
 
-import com.example.biovision.data.API.Plant.model.Detail;
+import android.support.annotation.Nullable;
+
+import com.example.biovision.data.API.Plant.model.Disease;
+import com.example.biovision.data.API.Plant.model.PlantDetail;
 import com.example.biovision.data.API.Plant.model.Health;
 import com.example.biovision.data.API.Plant.model.Image;
 import com.example.biovision.data.API.Plant.model.Plant;
@@ -20,6 +23,25 @@ public class PlantResultBuilder {
                 data.getDouble(Health.PROBABILITY));
     }
 
+    private static ArrayList<Disease> diseaseListBuilder(@Nullable JSONObject data) throws JSONException {
+        ArrayList<Disease> diseaseArr = new ArrayList<>();
+        if (!data.isNull("disease")){
+            JSONArray arr = data.getJSONObject("disease").getJSONArray("suggestions");
+            for (int i=0; i < arr.length(); i++){
+                JSONObject diseaseData = arr.getJSONObject(i);
+
+                diseaseArr.add(new Disease(
+                        diseaseData.getString("id"),
+                        diseaseData.getString("name"),
+                        diseaseData.getDouble("probability"),
+                        imageListBuilder(diseaseData.getJSONArray("similar_images")),
+                        diseaseData.getJSONObject("details").getString("description"),
+                        diseaseData.getJSONObject("details").get("common_names")
+                ));
+            }
+        }
+        return diseaseArr;
+    }
     private static Taxonomy taxonomyBuilder(JSONObject data) throws JSONException {
         return new Taxonomy(
                 data.getString(Taxonomy.CLASS),
@@ -30,7 +52,7 @@ public class PlantResultBuilder {
                 data.getString(Taxonomy.KINGDOM)
         );
     }
-    private static Detail detailBuilder(JSONObject data) throws JSONException {
+    private static PlantDetail detailBuilder(JSONObject data) throws JSONException {
 
         data.get("edible_parts");
 
@@ -41,22 +63,22 @@ public class PlantResultBuilder {
         } catch (JSONException e) {
             desc = "";
         }
-        return new Detail(
-                data.get(Detail.COMMON_NAMES),
-                taxonomyBuilder(data.getJSONObject(Detail.TAXONOMY)),
-                data.getString(Detail.URL),
-                data.getDouble(Detail.GBIF_ID),
-                data.getDouble(Detail.INATURALIST_ID),
-                data.getString(Detail.RANK),
+        return new PlantDetail(
+                data.get(PlantDetail.COMMON_NAMES),
+                taxonomyBuilder(data.getJSONObject(PlantDetail.TAXONOMY)),
+                data.getString(PlantDetail.URL),
+                data.getDouble(PlantDetail.GBIF_ID),
+                data.getDouble(PlantDetail.INATURALIST_ID),
+                data.getString(PlantDetail.RANK),
                 desc,
-                data.get(Detail.EDIBLE_PARTS),
-                data.get(Detail.WATERING),
-                data.getString(Detail.BEST_LIGHT_CONDITION),
-                data.getString(Detail.BEST_SOIL_TYPE),
-                data.getString(Detail.COMMON_USES),
-                data.getString(Detail.CULTURAL_SIGNIFICANCE),
-                data.getString(Detail.TOXICITY),
-                data.getString(Detail.BEST_WATERING)
+                data.get(PlantDetail.EDIBLE_PARTS),
+                data.get(PlantDetail.WATERING),
+                data.getString(PlantDetail.BEST_LIGHT_CONDITION),
+                data.getString(PlantDetail.BEST_SOIL_TYPE),
+                data.getString(PlantDetail.COMMON_USES),
+                data.getString(PlantDetail.CULTURAL_SIGNIFICANCE),
+                data.getString(PlantDetail.TOXICITY),
+                data.getString(PlantDetail.BEST_WATERING)
         );
     }
 
@@ -99,6 +121,7 @@ public class PlantResultBuilder {
 
         return new PlantResult(
                 healthBuilder(result.getJSONObject("is_healthy")),
+                diseaseListBuilder(result),
                 plantArr
         );
     }
