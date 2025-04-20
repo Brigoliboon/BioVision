@@ -1,6 +1,9 @@
 package com.example.biovision.core;
 
+import okhttp3.ResponseBody;
+
 public abstract class Result<T> {
+
 
     private Result() {
     }
@@ -19,5 +22,9 @@ public abstract class Result<T> {
         public Error(Throwable exception) {
             this.exception = exception;
         }
+    }
+
+    public static final class Loading<T> extends Result<T> {
+        public Loading() {}
     }
 }

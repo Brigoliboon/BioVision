@@ -1,8 +1,10 @@
 package com.example.biovision;
 
+import com.example.biovision.core.Result;
 import com.example.biovision.data.API.Connection.exception.RuntimeTimeoutException;
 import com.example.biovision.data.API.Connection.exception.UnauthorizedException;
 import com.example.biovision.data.API.Plant.PlantRequest;
+import com.example.biovision.data.API.Plant.model.PlantResult;
 import com.example.biovision.data.API.Plant.util.PayloadGenerator;
 import com.example.biovision.data.API.Request.Request;
 import com.example.biovision.Camera.util.ImageProcess;
@@ -42,8 +44,8 @@ public class ResponseUnitTest {
         // Parse sample image into b64
         String b64 = ImageProcess.encodeImageToBase64("D:\\Central Mindanao University\\projects\\BioVision\\app\\src\\test\\java\\com\\example\\biovision\\ladybug.png");
         JSONObject payload = PayloadGenerator.generatePayload(b64);
-        ResponseBody r = plantAPI.plantScan(payload);
+        Result<PlantResult> r = plantAPI.plantScan(payload);
 
-        System.out.println(r.string());
+        System.out.println(r);
     }
 }

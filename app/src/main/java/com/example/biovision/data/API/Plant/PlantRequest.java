@@ -1,8 +1,12 @@
 package com.example.biovision.data.API.Plant;
 
+import com.example.biovision.core.Result;
 import com.example.biovision.data.API.Connection.exception.NetworkErrorException;
 import com.example.biovision.data.API.Connection.exception.UnauthorizedException;
+import com.example.biovision.data.API.Plant.model.PlantResult;
+import com.example.biovision.data.API.Plant.util.PlantResultBuilder;
 import com.example.biovision.data.API.Request.Request;
+import com.example.biovision.data.API.Request.util.JSONParser;
 
 import org.json.JSONObject;
 
@@ -29,9 +33,17 @@ public class PlantRequest {
         return response;
     }
 
-    public ResponseBody plantScan(JSONObject payload) {
-        Request request = new Request(api_key, "https://bio-vision-api.vercel.app/api/v1/plant/identification");
-        Response r = request.POST(payload);
-        return r.body();
+    public Result<PlantResult> plantScan(JSONObject payload) {
+        try {
+            Request request = new Request(api_key, "https://bio-vision-api.vercel.app/api/v1/plant/identification");
+            Response r = request.POST(payload);
+
+            JSONObject data = JSONParser.parsetoJSON(r.body());
+            PlantResult plantResponse = PlantResultBuilder.plantResultBuilder(data);
+
+            return new Result.Success<>(plantResponse);
+        } catch (Exception e) {
+            return new Result.Error<>(e);
+        }
     }
 }
