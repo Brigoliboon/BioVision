@@ -14,6 +14,10 @@ public abstract class Result<T> {
         public Success(T data) {
             this.data = data;
         }
+
+        public T getData() {
+            return data;
+        }
     }
 
     public static final class Error<T> extends Result<T> {

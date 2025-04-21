@@ -1,5 +1,7 @@
 package com.example.biovision.ui.camera;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -28,13 +30,18 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
+import com.example.biovision.core.Result;
 import com.example.biovision.data.API.Plant.PlantRequest;
 import com.example.biovision.data.API.Plant.model.PlantResult;
 import com.example.biovision.Camera.util.ImageProcess;
 import com.example.biovision.R;
+import com.example.biovision.data.API.Plant.util.PayloadGenerator;
 import com.example.biovision.data.API.Plant.util.PlantResultBuilder;
 import com.example.biovision.ui.components.BottomSheetFragmentv2;
+import com.example.biovision.ui.main.MainActivity;
+import com.example.biovision.viewmodel.PlantViewModel;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.BufferedReader;
@@ -58,6 +65,8 @@ public class CameraActivity extends AppCompatActivity {
     ImageButton capture; // The id element for the capture button
     SearchView search_bar; // The id element for search compat query
     private PreviewView previewView; // The id element for the preview surface of camera view
+
+    private PlantViewModel plantViewModel;
 
     private static final PlantRequest plantAPI = new PlantRequest("qzG7VtS3JdK9pL6Rwx2YhQ8Zb5No3KfE4M1sTzAqB7FvXjC8hL");
 
@@ -91,6 +100,9 @@ public class CameraActivity extends AppCompatActivity {
             return insets;
         });
 
+        plantViewModel = new ViewModelProvider(this).get(PlantViewModel.class);
+        observePlantData();
+
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -109,6 +121,41 @@ public class CameraActivity extends AppCompatActivity {
         }
     }
 
+    public void observePlantData(){
+        plantViewModel.getResult().observe(this, result -> {
+            if (result instanceof Result.Loading) {
+                // Show loading UI
+                // TODO: Implement lazy loading
+            } else if (result instanceof Result.Success) {
+                 PlantResult plantResult = ((Result.Success<PlantResult>) result).getData();
+                 showDialog(plantResult);
+            } else if (result instanceof Result.Error) {
+                // Show error
+                String message = ((Result.Error) result).exception.getCause().getMessage();
+                showErrorDialog("Error", message);
+            }
+        });
+    }
+
+    public void showErrorDialog(String title, String message){
+            // Create the object of AlertDialog Builder class
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            // Set the message show for the Alert time
+            builder.setMessage(message);
+
+            // Set Alert Title
+            builder.setTitle(title);
+
+            // Set Cancelable false for when the user clicks
+            // on the outside the Dialog Box then it will remain show
+            builder.setCancelable(false);
+
+            // Set the positive button with yes name Lambda
+            // OnClickListener method is use of DialogInterface interface.
+            builder.setPositiveButton("Okay", (DialogInterface.OnClickListener) (dialog, which) -> {
+            });
+    }
     private void getLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
@@ -201,59 +248,31 @@ public class CameraActivity extends AppCompatActivity {
                 JSONObject payload = null;
                 PlantResult plantResult;
 
-                try {
                     /**
                      * Disabled for testing purposes
                      */
-//                    payload = PayloadGenerator.generatePayload(b64Image);
-//                    ResponseBody result = plantAPI.plantScan(payload);
-//                    plantResult = PlantResultBuilder.plantResultBuilder(JSONParser.parsetoJSON(result));
-                    /**
-                     * Preloaded Response result
-                     * after testing, change the minimum sdk to 26
-                     */
-                    InputStream inputStream = getAssets().open("sampleResponse.json");
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-                    StringBuilder jsonData = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        jsonData.append(line);
-                    }
-                    reader.close();
-                    inputStream.close();
-                    JSONObject json = new JSONObject(String.valueOf(jsonData));
-                    plantResult = PlantResultBuilder.plantResultBuilder(json);
-
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+                try {
+                    payload = PayloadGenerator.generatePayload(b64Image);
+                    plantViewModel.plantScan(payload, true);
+                } catch (JSONException ex) {
+                    throw new RuntimeException(ex);
                 }
-
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        {
-                            try {
-                                showDialog(plantResult);
-                            } catch (IOException | JSONException e) {
-                                throw new RuntimeException(e);
-                            }
-                            capture.setEnabled(true);
-                        }
-                    }
-                });
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        {
+//                            showDialog(plantResult);
+//                            capture.setEnabled(true);
+//                        }
+//                    }
+//                });
                 // To avoid spamming, disable the button during the saving process
-                if (!capture.isEnabled()) {
-                    capture.setEnabled(true);
-                    startCamera(cameraFacing);
-                }
             }
 
-            @Override
+                @Override
             public void onError(@NonNull ImageCaptureException exception) {
                 runOnUiThread(new Runnable() {
-                    @Override
+                    @Override 
                     public void run() {
                         Toast.makeText(CameraActivity.this, "Failed to save: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -263,7 +282,7 @@ public class CameraActivity extends AppCompatActivity {
         });
     }
 
-    public void showDialog(PlantResult result) throws IOException, JSONException {
+    public void showDialog(PlantResult result){
         BottomSheetFragmentv2 bottomSheet = new BottomSheetFragmentv2(result);
         bottomSheet.show(getSupportFragmentManager(), "BottomSheetFragment");
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/design_bottom_sheet"
     android:layout_width="match_parent"
@@ -76,7 +76,7 @@
             android:textColor="@color/textColorSecondary"/>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="350dp"
             android:layout_marginBottom="5dp"
             android:orientation="vertical"
             android:background="@drawable/bottomsheet_detail_container"
@@ -144,8 +144,8 @@
                         android:layout_height="67dp"
                         android:elevation="2dp"
                         android:scaleType="fitCenter"
-
-                        android:src="@drawable/nontoxic" />
+                        android:src="@drawable/nontoxic"
+                        android:outlineAmbientShadowColor="@color/black_overlay"/>
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/diseaseCount"
                         android:layout_width="match_parent"
@@ -153,6 +153,7 @@
                 </LinearLayout>
             </LinearLayout>
             <Button
+                android:id="@+id/health_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="View Diagnosis"
@@ -160,5 +161,11 @@
                 />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/detail_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="See Full Detail"
+            style="@style/Widget.MaterialComponents.Button"/>
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

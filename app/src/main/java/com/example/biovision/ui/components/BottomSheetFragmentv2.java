@@ -10,12 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.biovision.R;
 import com.example.biovision.data.API.Plant.model.Plant;
 import com.example.biovision.data.API.Plant.model.PlantResult;
+import com.example.biovision.ui.camera.fragments.fullDatail.FullDetailFragment;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.PieData;
@@ -23,6 +25,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 
@@ -71,8 +74,40 @@ public class BottomSheetFragmentv2 extends BottomSheetDialogFragment {
         PieData diseaseData = new PieData(diseaseDataSet);
         loadDiseaseGraph(view, result, diseaseData);
 
-        loadViewPager(viewPager, new Integer[] {R.layout.plant_detail_desc_layout, R.layout.plant_detail_kind_layout});
+        loadViewPager(viewPager, new Integer[] {R.layout.plant_detail_desc_layout, R.layout.plant_detail_kind_layout}, closestMatch);
         initializeBottomSheet(view, result);
+
+        view.findViewById(R.id.health_btn).setOnClickListener(v -> {
+
+            FragmentActivity activity = getActivity();
+            if (activity != null) {
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new FullDetailFragment())
+                        .addToBackStack(null)
+                        .commit();
+
+                View bottomSheet = getDialog().findViewById(R.id.design_bottom_sheet);
+                BottomSheetBehavior<View> behavior = BottomSheetBehavior.from(bottomSheet);
+                behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+            }
+        });
+
+        view.findViewById(R.id.detail_btn).setOnClickListener(v -> {
+
+            FragmentActivity activity = getActivity();
+            if (activity != null) {
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new FullDetailFragment())
+                        .addToBackStack(null)
+                        .commit();
+
+                View bottomSheet = getDialog().findViewById(R.id.design_bottom_sheet);
+                BottomSheetBehavior<View> behavior = BottomSheetBehavior.from(bottomSheet);
+                behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+            }
+        });
 
     }
 
@@ -83,7 +118,7 @@ public class BottomSheetFragmentv2 extends BottomSheetDialogFragment {
         BottomSheetBehavior<View> behavior = BottomSheetBehavior.from(bottomSheet);
 
         behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);  // Start in collapsed mode
-        behavior.setPeekHeight(505);  // Default collapsed height
+        behavior.setPeekHeight(550);  // Default collapsed height
         behavior.setHideable(false);  // Prevent dismissing by swipe
         behavior.setFitToContents(true);
     }
@@ -98,14 +133,19 @@ public class BottomSheetFragmentv2 extends BottomSheetDialogFragment {
         TextView scientific_name = view.findViewById(R.id.scientific_name);
         TextView common_names = view.findViewById(R.id.common_names);
         TextView match_percent = view.findViewById(R.id.match_percent);
-
         ImageView img = view.findViewById(R.id.sample_img);
         Plant match = result.getClosestMatch();
+
+        Picasso.get()
+                .load(match.similarImages().get(0).url()) // or use a local file or resource
+                .into(img); // your ImageView
+
+        match_percent.setText("Match Percent: "+match.getMatchPercent());
         // TODO: Implement getting first of the common names
-//        common_name.setText(match.name());
-        scientific_name.setText(match.name());
+        common_name.setText(match.getCommonName());
+        scientific_name.setText(match.scientificName());
         // TODO: Implement string builder for concatenating all common names
-//        common_names.setText();
+        common_names.setText(match.getConcatNames());
     }
 
     // TODO
@@ -125,8 +165,8 @@ public class BottomSheetFragmentv2 extends BottomSheetDialogFragment {
         pieChart.setDrawEntryLabels(false);
 
 // Set center text
-        pieChart.setCenterText(24+"\nPotential\nDiseases");
-        pieChart.setCenterTextSize(12f);
+        pieChart.setCenterText(result.disease().size()+"\nPotential\nDiseases");
+        pieChart.setCenterTextSize(14f);
         pieChart.animateY(1000); // Animation
     }
     private void loadHealthGraph(View view, PlantResult result, PieData pieData){
@@ -145,13 +185,12 @@ public class BottomSheetFragmentv2 extends BottomSheetDialogFragment {
         pieChart.setCenterTextSize(20f);
         pieChart.animateY(1000); // Animation
     }
-    private void loadViewPager(ViewPager2 viewPager, Integer[] layoutArr){
+    private void loadViewPager(ViewPager2 viewPager, Integer[] layoutArr, Plant plant){
         List<Integer> layoutIds = Arrays.asList(
                 layoutArr
         );
-        CarouselLayoutAdapter adapter = new CarouselLayoutAdapter(layoutIds);
+        CarouselLayoutAdapter adapter = new CarouselLayoutAdapter(layoutIds, plant);
         viewPager.setAdapter(adapter);
-
 // Carousel effect
         viewPager.setOffscreenPageLimit(3);
         viewPager.setPageTransformer(new MarginPageTransformer(40));
@@ -163,5 +202,8 @@ public class BottomSheetFragmentv2 extends BottomSheetDialogFragment {
             float scale = 0.85f + (1 - Math.abs(position)) * 0.15f;
             page.setScaleY(scale);
         });
+    }
+
+    public void loadDetailPage(View view){
     }
 }

@@ -2,6 +2,7 @@ package com.example.biovision.ui.camera.fragments.fullDatail;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -30,6 +31,14 @@ public class FullDetailFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_full_detail, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        view.setBackgroundColor(Color.WHITE);
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
